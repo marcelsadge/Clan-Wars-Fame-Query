@@ -24,12 +24,18 @@ function App() {
   const [player, setPlayer] = useState('');
   const [cutoff, setCutoff] = useState('');
 
+  const [clanSearch, setClanSearch] = useState('');
+
   const findPlayer = async () => {
     const playerId = await getPlayerId(search);
     console.log(playerId);
     const playerStats = await getPlayerFamePoints(playerId[0]);
     setPlayer(search);
     setQuery(playerStats);
+  };
+
+  const findClan = async () => {
+    
   };
 
   async function getFameCutoff(cutoff) {
@@ -73,12 +79,12 @@ function App() {
       </Loader> : 
       <div className="Fame-Query-App">
         <div className="Fame-Query-Box">
-          <h1 className='header-name'>
-            Wot Fame Points Checker
+          <h1 className='header-name-1'>
+            Wot Fame
           </h1>
           <h1 className='header-name'>
             Current Fame Cutoff: 
-            {cutoff}
+            &nbsp;{cutoff}
           </h1>
         </div>
         <div className='Search-Button'>
@@ -94,22 +100,40 @@ function App() {
             Find Fame
           </button>
         </div>
-        {query && 
-        <div>
-          <h1 className='header-name'>
-            Player: 
-            {player}
-          </h1>
-          <h1 className='header-name'>
-            Fame: 
-            {query.fame}
-          </h1>
-          <h1 className='header-name'>
-            Rank: 
-            {query.rank}
-          </h1>
+        <div className='player-result-box'>
+          {query && 
+            <div>
+              <h1 className='header-name'>
+                Player: 
+                {player}
+              </h1>
+              <h1 className='header-name'>
+                Fame: 
+                {query.fame}
+              </h1>
+              <h1 className='header-name'>
+                Rank: 
+                {query.rank}
+              </h1>
+            </div>
+          }
         </div>
-        }
+        <div className='clan-result-box'>
+          <h1 className='header-name'>
+              Clan Search:
+          </h1>
+          <input
+            value={clanSearch}
+            placeholder="Search Clan"
+            onChange={(event) => {
+              setClanSearch(event.target.value);
+          }}/>
+          <button onClick={async () => {
+            await findClan()
+            }}>
+            Find Clan
+          </button>
+        </div>
       </div>}
     </div>
     

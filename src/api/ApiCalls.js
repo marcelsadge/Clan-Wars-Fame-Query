@@ -16,7 +16,7 @@ export async function getFameCutoff(cutoff) {
     for (const elem in fameCutoffPage) {
         if (fameCutoffPage[elem]["award_level"] > cutoff) {
             console.log( prev["fame_points"]);
-            return prev["fame_points"];
+            return [prev["fame_points"], prev["updated_at"]];
         }
         prev = fameCutoffPage[elem];
     }
@@ -80,3 +80,7 @@ export async function getPlayerId(player) {
     }
     return '';
 }
+
+export async function getAllPlayersFameFromClan(clan_id) {
+    
+};

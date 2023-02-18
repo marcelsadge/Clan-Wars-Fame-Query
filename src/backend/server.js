@@ -5,12 +5,16 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+const fameCutoffRoute = require('./routes/cutoff.routes');
+
 const port = process.env.PORT || 5000;
 const uri = process.env.ATLAS_URI;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use('/fame', fameCutoffRoute);
 
 const server = http.createServer(app);
 
