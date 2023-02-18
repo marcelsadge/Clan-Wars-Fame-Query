@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+body {
+  font-family: 'Secular One';
+  background-color: #111111;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Fame-Query-App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-name {
+  color: white;
+}
+
+.Fame-Query-Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Search-Button {
+  justify-content: space-between;
+}
