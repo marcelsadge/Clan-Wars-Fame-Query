@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getPlayerFamePoints, getPlayersFamePoints, getPlayerId, getFameCutoff } from './api/ApiCalls';
+import { getPlayerFamePoints, getPlayersFamePoints, getPlayerId, getFameCutoff, getAllClanMemberIds, getAllPlayersFameFromClan, getClanId } from './api/ApiCalls';
 
 import './App.css';
 
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
+import JsonDataDisplay from './ComponentDisplay';
 
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';
@@ -25,6 +26,7 @@ function App() {
   const [cutoff, setCutoff] = useState('');
 
   const [clanSearch, setClanSearch] = useState('');
+  const [clanPlayerFame, setClanPlayerFame] = useState([]);
 
   const findPlayer = async () => {
     const playerId = await getPlayerId(search);
@@ -35,7 +37,23 @@ function App() {
   };
 
   const findClan = async () => {
-    
+    let final = [];
+    const clanId = await getClanId(clanSearch.toUpperCase());
+    const arrayOfPlayers = await getAllClanMemberIds(clanId);
+    const allFame = await getAllPlayersFameFromClan(arrayOfPlayers);
+    for (const elem in allFame) {
+      if (allFame[elem]["rank"] != null) {
+        if (allFame[elem]["fame"] > cutoff) {
+          allFame[elem]["has_tank"] = "Yes";
+        } else {
+          allFame[elem]["has_tank"] = "No";
+        }
+        final.push(allFame[elem]);
+      }
+    }
+    final.sort((a,b) => a.rank - b.rank);
+    setClanPlayerFame(final);
+    console.log(final);
   };
 
   async function getFameCutoff(cutoff) {
@@ -65,7 +83,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-  }, [cutoff, query]);
+  }, [cutoff, query, clanPlayerFame]);
 
   return (
     <div>
@@ -122,17 +140,24 @@ function App() {
           <h1 className='header-name'>
               Clan Search:
           </h1>
-          <input
-            value={clanSearch}
-            placeholder="Search Clan"
-            onChange={(event) => {
-              setClanSearch(event.target.value);
-          }}/>
-          <button onClick={async () => {
-            await findClan()
-            }}>
-            Find Clan
-          </button>
+          <div className='Search-Button'>
+            <input
+              value={clanSearch}
+              placeholder="Search Clan"
+              onChange={(event) => {
+                setClanSearch(event.target.value);
+            }}/>
+            <button onClick={async () => {
+              await findClan()
+              }}>
+              Find Clan
+            </button>
+          </div>
+        </div>
+        <div className='player-result-box'>
+          {clanPlayerFame && 
+            <JsonDataDisplay fameData={clanPlayerFame}/>
+          }
         </div>
       </div>}
     </div>

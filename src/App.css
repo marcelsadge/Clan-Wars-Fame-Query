@@ -34,3 +34,10 @@ body {
 .Search-Button {
   justify-content: space-between;
 }
+
+.clan-result-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+}

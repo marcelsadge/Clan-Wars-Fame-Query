@@ -55,14 +55,12 @@ export async function getPlayerFamePoints(account_id) {
     })
     .then((response) => response.json())
     .then((result) => {
-        console.log(result.data);
         return result.data;
     });
     console.log(playerCampaignStats);
     let result = {};
     result.rank = playerCampaignStats[account_id]["events"][event_id][0]["award_level"];
     result.fame = playerCampaignStats[account_id]["events"][event_id][0]["fame_points"];
-    console.log(result);
     return result;
 }
 
@@ -81,6 +79,49 @@ export async function getPlayerId(player) {
     return '';
 }
 
-export async function getAllPlayersFameFromClan(clan_id) {
-    
+export async function getClanId(clan) {
+    const data = await fetch(`https://api.worldoftanks.com/wot/clans/list/?application_id=${api_key}&search=${clan}`, {
+        method: 'GET'
+    }).then((response) => response.json())
+        .then((result) => {
+            return result.data;
+        });
+    for (const element in data) {
+        if (data[element]['tag'] === clan) {
+            return data[element]['clan_id'];
+        }
+    }
+    return '';
+}
+
+export async function getAllClanMemberIds(clan_id) {
+    let result = [];
+    let names = [];
+    const data = await fetch(`https://api.worldoftanks.com/wot/clans/info/?application_id=${api_key}&clan_id=${clan_id}`, {
+        method: 'GET'
+    }).then((response) => response.json())
+        .then((result) => {
+            return result.data;
+        });
+    const members = data[clan_id]["members"];
+    for (const element in members) {
+        result.push(members[element]["account_id"]);
+        names.push(members[element]["account_name"]);
+    }
+    return [result, names];
+}
+
+export async function getAllPlayersFameFromClan(player_ids) {
+    let allPlayersJson = [];
+    let count = 0;
+    const playerList = player_ids[0];
+    for (const elem in playerList) {
+        console.log(playerList[elem]);
+        const playerFame = await getPlayerFamePoints(playerList[elem]);
+        playerFame.player = player_ids[1][count];
+        console.log(playerFame);
+        allPlayersJson.push(playerFame);
+        count++;
+    }
+    return allPlayersJson;
 };
