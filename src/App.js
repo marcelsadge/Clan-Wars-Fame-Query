@@ -25,6 +25,7 @@ function App() {
   const [player, setPlayer] = useState('');
   const [cutoff, setCutoff] = useState('');
 
+  const [clanLoading, setClanLoading] = useState(false);
   const [clanSearch, setClanSearch] = useState('');
   const [clanPlayerFame, setClanPlayerFame] = useState([]);
 
@@ -37,6 +38,7 @@ function App() {
   };
 
   const findClan = async () => {
+    setClanLoading(true);
     let final = [];
     const clanId = await getClanId(clanSearch.toUpperCase());
     const arrayOfPlayers = await getAllClanMemberIds(clanId);
@@ -54,6 +56,7 @@ function App() {
     final.sort((a,b) => a.rank - b.rank);
     setClanPlayerFame(final);
     console.log(final);
+    setClanLoading(false);
   };
 
   async function getFameCutoff(cutoff) {
@@ -155,7 +158,7 @@ function App() {
           </div>
         </div>
         <div className='player-result-box'>
-          {clanPlayerFame && 
+          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading...</h1> :
             <JsonDataDisplay fameData={clanPlayerFame}/>
           }
         </div>
