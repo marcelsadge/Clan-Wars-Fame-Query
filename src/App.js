@@ -56,6 +56,7 @@ function App() {
     final.sort((a,b) => a.rank - b.rank);
     setClanPlayerFame(final);
     console.log(final);
+    localStorage.setItem('clans', JSON.stringify(final));
     setClanLoading(false);
   };
 
@@ -76,13 +77,17 @@ function App() {
         }
         prev = fameCutoffPage[elem];
     }
+    if (localStorage.getItem('clans') == null) {
+      setClanPlayerFame([]);
+    } else {
+      setClanPlayerFame(JSON.parse(localStorage.getItem('clans')));
+    }
     setLoading(false);
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     setLoading(true);
     getFameCutoff(2250);
-    
   }, []);
 
   useEffect(() => {
@@ -158,7 +163,7 @@ function App() {
           </div>
         </div>
         <div className='player-result-box'>
-          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading...</h1> :
+          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
             <JsonDataDisplay fameData={clanPlayerFame}/>
           }
         </div>
