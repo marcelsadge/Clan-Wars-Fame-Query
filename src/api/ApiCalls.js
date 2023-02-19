@@ -9,13 +9,11 @@ export async function getFameCutoff(cutoff) {
     })
     .then((response) => response.json())
     .then((result) => {
-        console.log(result.data);
         return result.data;
     });
     let prev = {};
     for (const elem in fameCutoffPage) {
         if (fameCutoffPage[elem]["award_level"] > cutoff) {
-            console.log( prev["fame_points"]);
             return [prev["fame_points"], prev["updated_at"]];
         }
         prev = fameCutoffPage[elem];
@@ -57,7 +55,6 @@ export async function getPlayerFamePoints(account_id) {
     .then((result) => {
         return result.data;
     });
-    console.log(playerCampaignStats);
     let result = {};
     result.rank = playerCampaignStats[account_id]["events"][event_id][0]["award_level"];
     result.fame = playerCampaignStats[account_id]["events"][event_id][0]["fame_points"];
@@ -116,12 +113,73 @@ export async function getAllPlayersFameFromClan(player_ids) {
     let count = 0;
     const playerList = player_ids[0];
     for (const elem in playerList) {
-        console.log(playerList[elem]);
         const playerFame = await getPlayerFamePoints(playerList[elem]);
         playerFame.player = player_ids[1][count];
-        console.log(playerFame);
         allPlayersJson.push(playerFame);
         count++;
     }
     return allPlayersJson;
+};
+
+export async function getTankClanCount(cutoff) {
+    const count = 100;
+    let pageNum = 0;
+    let arrayOfPlayers = [];
+    while (pageNum < count) {
+        const fameLeaderboard = await fetch(`https://api.worldoftanks.com/wot/globalmap/eventaccountratings/?application_id=${api_key}&event_id=${event_id}&front_id=${front_id}&limit=100&page_no=${pageNum}`, {
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            return result.data;
+        });
+        arrayOfPlayers.push(fameLeaderboard);
+        pageNum++;
+    }
+    const result = arrayOfPlayers.flat(1);
+    let tankCount = {};
+    for (const elem in result) {
+        if (result[elem]) {
+            if (result[elem]["fame_points"] > cutoff) {
+                if (tankCount[result[elem]["clan_id"]]) {
+                    tankCount[result[elem]["clan_id"]] = tankCount[result[elem]["clan_id"]] + 1;
+                } else {
+                    tankCount[result[elem]["clan_id"]] = 1;
+                }
+            }
+        }
+    }
+    const clans = Object.keys(tankCount);
+    const tank_count = Object.values(tankCount);
+    let clanNames = [];
+    for (const clan in clans) {
+        const clan_id = clans[clan];
+        const clanInfo = await fetch(`https://api.worldoftanks.com/wot/clans/info/?application_id=${api_key}&clan_id=${clan_id}`, {
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            return result.data;
+        });
+        if (clanInfo) {
+            if (clanInfo[clan_id]["tag"]) {
+                clanNames.push(clanInfo[clan_id]["tag"]);
+            } else {
+                clanNames.push("Error");
+            }
+        }
+    }
+    let final_tank_counts = [];
+    let i = 0;
+    while (i < clans.length) {
+        let store_info = {};
+        store_info["clan_name"] = clanNames[i];
+        store_info["tank_count"] = tank_count[i];
+        final_tank_counts.push(store_info);
+        i++;
+    }
+    final_tank_counts.sort((a,b) => a.tank_count - b.tank_count);
+    final_tank_counts.reverse();
+    console.log(final_tank_counts);
+    return final_tank_counts;
 };

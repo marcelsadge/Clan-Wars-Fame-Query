@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getPlayerFamePoints, getPlayersFamePoints, getPlayerId, getFameCutoff, getAllClanMemberIds, getAllPlayersFameFromClan, getClanId } from './api/ApiCalls';
+import { getPlayerFamePoints, getPlayersFamePoints, getPlayerId, getFameCutoff, getAllClanMemberIds, getAllPlayersFameFromClan, getClanId, getTankClanCount } from './api/ApiCalls';
 
 import './App.css';
 
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
 import JsonDataDisplay from './ComponentDisplay';
+import JsonDataDisplay2 from './ComponentDisplay2';
 
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';
@@ -29,9 +30,11 @@ function App() {
   const [clanSearch, setClanSearch] = useState('');
   const [clanPlayerFame, setClanPlayerFame] = useState([]);
 
+  const [tankLoading, setTankLoading] = useState(false);
+  const [tankCount, setTankCount] = useState([]);
+
   const findPlayer = async () => {
     const playerId = await getPlayerId(search);
-    console.log(playerId);
     const playerStats = await getPlayerFamePoints(playerId[0]);
     setPlayer(search);
     setQuery(playerStats);
@@ -55,7 +58,6 @@ function App() {
     }
     final.sort((a,b) => a.rank - b.rank);
     setClanPlayerFame(final);
-    console.log(final);
     localStorage.setItem('clans', JSON.stringify(final));
     setClanLoading(false);
   };
@@ -77,21 +79,38 @@ function App() {
         }
         prev = fameCutoffPage[elem];
     }
+
     if (localStorage.getItem('clans') == null) {
       setClanPlayerFame([]);
     } else {
       setClanPlayerFame(JSON.parse(localStorage.getItem('clans')));
     }
+
     setLoading(false);
+
+    setTankLoading(true);
+
+    if (localStorage.getItem('tank_count') == null) {
+      const tank_counts = await getTankClanCount(prev["fame_points"]);
+      setTankCount(tank_counts);
+      localStorage.setItem('tank_count', JSON.stringify(tank_counts));
+    } else {
+      setTankCount(JSON.parse(localStorage.getItem('tank_count')));
+    }
+
+    setTankLoading(false);
+
+    return prev["fame_points"];
   }
 
   useEffect(() => {
+    //localStorage.clear();
     setLoading(true);
     getFameCutoff(2250);
   }, []);
 
   useEffect(() => {
-  }, [cutoff, query, clanPlayerFame]);
+  }, [cutoff, query, clanPlayerFame, tankCount]);
 
   return (
     <div>
@@ -165,6 +184,14 @@ function App() {
         <div className='player-result-box'>
           { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
             <JsonDataDisplay fameData={clanPlayerFame}/>
+          }
+        </div>
+        <div className='clan-tank-count-box'>
+          <h1 className='header-name'>
+            Clan Tank Count:
+          </h1>
+          { tankCount && tankLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+            <JsonDataDisplay2 fameData={tankCount}/>
           }
         </div>
       </div>}
