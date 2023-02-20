@@ -65,6 +65,7 @@ function App() {
   const updateClanTankList = async () => {
     setTankLoading(true);
     const tank_counts = await getTankClanCount(cutoff);
+    localStorage.setItem('tank_count', JSON.stringify(tank_counts));
     setTankCount(tank_counts);
     setTankLoading(false);
   };
