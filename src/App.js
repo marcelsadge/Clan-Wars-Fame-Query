@@ -62,6 +62,13 @@ function App() {
     setClanLoading(false);
   };
 
+  const updateClanTankList = async () => {
+    setTankLoading(true);
+    const tank_counts = await getTankClanCount(cutoff);
+    setTankCount(tank_counts);
+    setTankLoading(false);
+  };
+
   async function getFameCutoff(cutoff) {
     const page = Math.ceil(cutoff / 100);
     const fameCutoffPage = await fetch(`https://api.worldoftanks.com/wot/globalmap/eventaccountratings/?application_id=${api_key}&event_id=${event_id}&front_id=${front_id}&limit=100&page_no=${page}`, {
@@ -104,7 +111,6 @@ function App() {
   }
 
   useEffect(() => {
-    //localStorage.clear();
     setLoading(true);
     getFameCutoff(2250);
   }, []);
@@ -190,8 +196,19 @@ function App() {
           <h1 className='header-name'>
             Clan Tank Count:
           </h1>
-          { tankCount && tankLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
-            <JsonDataDisplay2 fameData={tankCount}/>
+          { tankLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+            <div className='tank-count-container'>
+              <div className='tank-count-container'>
+                <button onClick={async () => {
+                  await updateClanTankList();
+                  }}>
+                  Update Tanks
+                </button>
+              </div>
+              <div className='tank-count-container'>
+                <JsonDataDisplay2 fameData={tankCount}/>
+              </div>
+            </div>
           }
         </div>
       </div>}

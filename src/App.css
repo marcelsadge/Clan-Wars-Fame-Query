@@ -48,3 +48,9 @@ body {
   align-items: center;
   color:white;
 }
+
+.tank-count-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
