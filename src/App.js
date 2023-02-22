@@ -20,6 +20,8 @@ const Loader = styled.div`
 `
 
 function App() {
+  const [checkLocal, setLocal] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState('');
@@ -58,6 +60,8 @@ function App() {
     }
     final.sort((a,b) => a.rank - b.rank);
     setClanPlayerFame(final);
+    setLocal(true);
+    localStorage.setItem('clan', clanSearch.toUpperCase());
     localStorage.setItem('clans', JSON.stringify(final));
     setClanLoading(false);
   };
@@ -70,7 +74,18 @@ function App() {
     setTankLoading(false);
   };
 
+  const updateClanData = async () => {
+    if (localStorage.getItem('clan') != null) {
+      setClanSearch(localStorage.getItem('clan'));
+      await findClan();
+    }
+  };
+
   async function getFameCutoff(cutoff) {
+    if (localStorage.getItem('clan') != null) {
+      console.log(checkLocal);
+      setLocal(true);
+    }
     const page = Math.ceil(cutoff / 100);
     const fameCutoffPage = await fetch(`https://api.worldoftanks.com/wot/globalmap/eventaccountratings/?application_id=${api_key}&event_id=${event_id}&front_id=${front_id}&limit=100&page_no=${page}`, {
         method: 'GET'
@@ -189,8 +204,16 @@ function App() {
           </div>
         </div>
         <div className='player-result-box'>
-          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
-            <JsonDataDisplay fameData={clanPlayerFame}/>
+          { clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+          checkLocal &&
+            <div className='tank-count-container'>
+              <button onClick={async () => {
+                await updateClanData();
+                }}>
+                Update Current Clan
+              </button>
+              <JsonDataDisplay fameData={clanPlayerFame}/>
+            </div>
           }
         </div>
         <div className='clan-tank-count-box'>

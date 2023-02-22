@@ -1,4 +1,7 @@
+import React, { useState } from "react";
+
 function JsonDataDisplay({ fameData }){
+
     const DisplayData=fameData.map(
         (info)=>{
             return(
@@ -27,7 +30,6 @@ function JsonDataDisplay({ fameData }){
                     {DisplayData}
                 </tbody>
             </table>
-             
         </div>
     )
  }
