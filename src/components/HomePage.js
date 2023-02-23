@@ -209,7 +209,10 @@ function HomePage() {
           </div>
         </div>
         <div className='player-result-box'>
-          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+          { clanPlayerFame && clanLoading ? 
+          <h1 style={{color : "white", "font-size" : "20px" }}>
+            Loading... 
+          </h1> :
           checkLocal &&
             <div className='tank-count-container'>
               <button onClick={async () => {
@@ -225,7 +228,10 @@ function HomePage() {
           <h1 className='header-name'>
             Clan Tank Count:
           </h1>
-          { tankLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+          { tankLoading ? 
+            <h1 style={{color : "white", "font-size" : "20px" }}>
+              Loading... 
+            </h1> :
             <div className='tank-count-container'>
               <div className='tank-count-container'>
                 <button onClick={async () => {
