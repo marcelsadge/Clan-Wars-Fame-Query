@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react';
-import { getPlayerFamePoints, getPlayersFamePoints, getPlayerId, getFameCutoff, getAllClanMemberIds, getAllPlayersFameFromClan, getClanId, getTankClanCount } from './api/ApiCalls';
+import { 
+  getPlayerFamePoints, 
+  getPlayersFamePoints, 
+  getPlayerId, 
+  getFameCutoff, 
+  getAllClanMemberIds, 
+  getAllPlayersFameFromClan, 
+  getClanId, 
+  getTankClanCount } from '../api/ApiCalls';
 
-import './App.css';
+import './HomePage.css';
 
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
 import JsonDataDisplay from './ComponentDisplay';
 import JsonDataDisplay2 from './ComponentDisplay2';
+import SearchBar from './SearchBar';
 
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';
@@ -19,7 +28,7 @@ const Loader = styled.div`
     height: 100vh;
 `
 
-function App() {
+function HomePage() {
   const [checkLocal, setLocal] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -161,12 +170,7 @@ function App() {
           <h1 className='header-name'>
             Player Search:
           </h1>
-          <input
-          value={search}
-          placeholder="Search Player"
-          onChange={(event) => {
-            setSearch(event.target.value);
-          }}/>
+          <SearchBar search={search} setSearch={setSearch} placeholder={"Player Name"}/>
           <button onClick={async () => {
             await findPlayer()
             }}>
@@ -196,12 +200,7 @@ function App() {
               Clan Search:
           </h1>
           <div className='Search-Button'>
-            <input
-              value={clanSearch}
-              placeholder="Search Clan"
-              onChange={(event) => {
-                setClanSearch(event.target.value);
-            }}/>
+            <SearchBar search={clanSearch} setSearch={setClanSearch} placeholder={"Clan Name"}/>
             <button onClick={async () => {
               await findClan(clanSearch)
               }}>
@@ -248,4 +247,4 @@ function App() {
   
 }
 
-export default App;
+export default HomePage;
