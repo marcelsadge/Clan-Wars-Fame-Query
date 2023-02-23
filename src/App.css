@@ -24,6 +24,10 @@ body {
   color: white;
 }
 
+.Search-Button {
+  text-align: center;
+}
+
 .Fame-Query-Box {
   display: flex;
   flex-direction: column;

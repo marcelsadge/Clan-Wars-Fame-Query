@@ -42,10 +42,10 @@ function App() {
     setQuery(playerStats);
   };
 
-  const findClan = async () => {
+  const findClan = async (input) => {
     setClanLoading(true);
     let final = [];
-    const clanId = await getClanId(clanSearch.toUpperCase());
+    const clanId = await getClanId(input.toUpperCase());
     const arrayOfPlayers = await getAllClanMemberIds(clanId);
     const allFame = await getAllPlayersFameFromClan(arrayOfPlayers);
     for (const elem in allFame) {
@@ -77,8 +77,7 @@ function App() {
 
   const updateClanData = async () => {
     if (localStorage.getItem('clan') != null) {
-      setClanSearch(localStorage.getItem('clan'));
-      await findClan();
+      await findClan(localStorage.getItem('clan'));
     }
   };
 
@@ -121,6 +120,10 @@ function App() {
       setTankCount(JSON.parse(localStorage.getItem('tank_count')));
     }
 
+    if (localStorage.getItem('clan') != null) {
+      setLocal(true);
+    }
+
     setTankLoading(false);
 
     return prev["fame_points"];
@@ -150,11 +153,14 @@ function App() {
             Wot Fame
           </h1>
           <h1 className='header-name'>
-            Current Fame Cutoff: 
+            Cutoff: 
             &nbsp;{cutoff}
           </h1>
         </div>
         <div className='Search-Button'>
+          <h1 className='header-name'>
+            Player Search:
+          </h1>
           <input
           value={search}
           placeholder="Search Player"
@@ -197,14 +203,14 @@ function App() {
                 setClanSearch(event.target.value);
             }}/>
             <button onClick={async () => {
-              await findClan()
+              await findClan(clanSearch)
               }}>
               Find Clan
             </button>
           </div>
         </div>
         <div className='player-result-box'>
-          { clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
+          { clanPlayerFame && clanLoading ? <h1 style={{color : "white"}}>Loading... </h1> :
           checkLocal &&
             <div className='tank-count-container'>
               <button onClick={async () => {
