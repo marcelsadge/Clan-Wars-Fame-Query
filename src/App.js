@@ -51,12 +51,13 @@ function App() {
     for (const elem in allFame) {
       if (allFame[elem]["rank"] != null) {
         if (allFame[elem]["fame"] > cutoff) {
-          allFame[elem]["has_tank"] = "Yes";
+          allFame[elem]["has_tank"] = "Y";
         } else {
-          allFame[elem]["has_tank"] = "No";
+          allFame[elem]["has_tank"] = "N";
         }
         final.push(allFame[elem]);
       }
+      allFame[elem]["Points/Battles"] = (allFame[elem]["fame"] / allFame[elem]["battles"]).toFixed(2);
     }
     final.sort((a,b) => a.rank - b.rank);
     setClanPlayerFame(final);
@@ -83,7 +84,6 @@ function App() {
 
   async function getFameCutoff(cutoff) {
     if (localStorage.getItem('clan') != null) {
-      console.log(checkLocal);
       setLocal(true);
     }
     const page = Math.ceil(cutoff / 100);

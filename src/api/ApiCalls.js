@@ -58,6 +58,7 @@ export async function getPlayerFamePoints(account_id) {
     let result = {};
     result.rank = playerCampaignStats[account_id]["events"][event_id][0]["award_level"];
     result.fame = playerCampaignStats[account_id]["events"][event_id][0]["fame_points"];
+    result.battles = playerCampaignStats[account_id]["events"][event_id][0]["battles"];
     return result;
 }
 
@@ -180,6 +181,5 @@ export async function getTankClanCount(cutoff) {
     }
     final_tank_counts.sort((a,b) => a.tank_count - b.tank_count);
     final_tank_counts.reverse();
-    console.log(final_tank_counts);
     return final_tank_counts;
 };

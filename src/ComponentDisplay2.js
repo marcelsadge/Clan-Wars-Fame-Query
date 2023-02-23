@@ -19,7 +19,7 @@ function JsonDataDisplay2({ fameData }){
                     <th style={{color: "white"}}>TankCount</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={{textAlign: "center"}}>
                     {DisplayData}
                 </tbody>
             </table>
