@@ -7,7 +7,7 @@ const SideContainer = styled.div`
   display: flex;
   height: 100px;
   > svg {
-    position: fixed;
+    position: absolute;
     color: white;
     height: 50px;
     width: 25px;

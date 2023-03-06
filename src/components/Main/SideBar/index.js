@@ -3,13 +3,13 @@ import styled, { keyframes } from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 
 const SideBarComponent = styled.div`
-    background-color: black;
-    position: fixed;
+    background-color: #0c0c0c;
+    position: absolute;
     height: 100%;
     width: 300px;
     animation: ${props => props.open ? openSideBar : closeSideBar} .5s;
     > svg {
-        position: fixed;
+        position: absolute;
         color: #fff;
         height: 50px;
         width: 25px;

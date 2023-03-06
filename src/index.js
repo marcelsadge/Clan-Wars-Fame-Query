@@ -6,10 +6,12 @@ import HomePage from './components/Main/HomePage';
 import PageHeader from './components/Main/PageHeader';
 import PlayerStatsPage from './components/Main/PlayerPage';
 import CampaignHomePage from './components/Campaigns/CampaignHomePage';
+import Footer from './components/Main/Footer';
 
 function Core() {
   return (
     <Router>
+      <Footer />
       <PageHeader />
       <Routes>
         <Route path='/' element={<HomePage />} />
