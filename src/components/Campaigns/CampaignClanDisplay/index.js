@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function JsonDataDisplay({ fameData }){
+function CampaignClanDisplay({ fameData }){
 
     const DisplayData=fameData.map(
         (info)=>{
@@ -38,4 +38,4 @@ function JsonDataDisplay({ fameData }){
     )
  }
  
- export default JsonDataDisplay;
+ export default CampaignClanDisplay;

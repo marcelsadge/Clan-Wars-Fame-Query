@@ -6,7 +6,7 @@ import InputBase from '@mui/material/InputBase';
 import { Button } from '@material-ui/core';
 import { ButtonGroup } from '@material-ui/core';
 
-import './SearchBar.css';
+import './index.css';
 
 const SearchContainer = styled.div`
     display: flex;
@@ -55,7 +55,7 @@ const ServerButton = styled(Button)`
     }
 `
 
-function SearchBar({ search, setSearch, placeholder }) {
+function CampaignSearchBar({ search, setSearch, placeholder }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -77,4 +77,4 @@ function SearchBar({ search, setSearch, placeholder }) {
     );
 }
 
-export default SearchBar;
+export default CampaignSearchBar;

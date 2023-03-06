@@ -7,15 +7,17 @@ import {
   getAllClanMemberIds, 
   getAllPlayersFameFromClan, 
   getClanId, 
-  getTankClanCount } from '../api/ApiCalls';
+  getTankClanCount, 
+  getAllClanIds,
+  getAvailableClans} from '../../../api/ApiCalls';
 
-import './HomePage.css';
+import './index.css';
 
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
-import JsonDataDisplay from './ComponentDisplay';
-import JsonDataDisplay2 from './ComponentDisplay2';
-import SearchBar from './SearchBar';
+import CampaignClanDisplay from '../CampaignClanDisplay/index';
+import CampaignTankCountDisplay from '../CampaignTankCountDisplay/index';
+import SearchBar from '../CampaignSearchBar/index';
 
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';
@@ -28,7 +30,7 @@ const Loader = styled.div`
     height: 100vh;
 `
 
-function HomePage() {
+function CampaignHomePage() {
   const [checkLocal, setLocal] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -220,7 +222,7 @@ function HomePage() {
                 }}>
                 Update Current Clan
               </button>
-              <JsonDataDisplay fameData={clanPlayerFame}/>
+              <CampaignClanDisplay fameData={clanPlayerFame}/>
             </div>
           }
         </div>
@@ -241,7 +243,7 @@ function HomePage() {
                 </button>
               </div>
               <div className='tank-count-container'>
-                <JsonDataDisplay2 fameData={tankCount}/>
+                <CampaignTankCountDisplay fameData={tankCount}/>
               </div>
             </div>
           }
@@ -253,4 +255,4 @@ function HomePage() {
   
 }
 
-export default HomePage;
+export default CampaignHomePage;
