@@ -1,4 +1,4 @@
-function JsonDataDisplay2({ fameData }){
+function CampaignTankCountDisplay({ fameData }){
     const DisplayData=fameData.map(
         (info)=>{
             return(
@@ -28,4 +28,4 @@ function JsonDataDisplay2({ fameData }){
     )
  }
  
- export default JsonDataDisplay2;
+ export default CampaignTankCountDisplay;
