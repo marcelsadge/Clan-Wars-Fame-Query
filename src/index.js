@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import ClanMap from './components/Main/ClanMap';
 import HomePage from './components/Main/HomePage';
 import PageHeader from './components/Main/PageHeader';

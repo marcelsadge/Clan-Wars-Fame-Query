@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const FBox = styled.div`
   padding: 1px 10px;
-  background: #151515;
-  position: fixed;
+  background-color: #151515;
+  position: absolute;
   bottom: 0;
   width: 100%;
 `;
@@ -29,6 +29,7 @@ const Row = styled.div`
   grid-template-columns: repeat(auto-fill, 
                          minmax(190px, 1fr));
   grid-gap: 20px;
+  margin-left: 200px;
 `;
    
 const FooterLink = styled.a`
@@ -56,7 +57,7 @@ const AuthorHeading = styled.p`
   color: #fff;
   margin-bottom: 20px;
   margin-top: 10px;
-  margin-left: 500px;
+  margin-left: 400px;
   font-weight: bold;
 `;
   
@@ -66,16 +67,10 @@ function Footer () {
       <Container>
         <Row>
           <Column>
-            <Heading>About Us (Coming Soon)</Heading>
-          </Column>
-          <Column>
-            <Heading>Resources (Coming Soon)</Heading>
+            <Heading>About (Coming Soon)</Heading>
           </Column>
           <Column>
             <Heading>Contact (Coming Soon)</Heading>
-          </Column>
-          <Column>
-            <Heading>Blog (Coming Soon)</Heading>
           </Column>
         </Row>
         <AuthorHeading>Created by:{' '}
