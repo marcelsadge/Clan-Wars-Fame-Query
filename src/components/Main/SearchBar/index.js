@@ -59,6 +59,7 @@ function SearchBar() {
     const [server, setServer] = useState('1');
     const [type, setType] = useState('1');
     const [search, setSearch] = useState('');
+    
     const navigation = useNavigate();
 
     const serverArray = ['NA', 'EU', 'ASIA'];

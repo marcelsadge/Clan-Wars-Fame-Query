@@ -4,8 +4,7 @@ import styled from 'styled-components';
 const FBox = styled.div`
   padding: 1px 10px;
   background-color: #151515;
-  position: absolute;
-  bottom: 0;
+  margin-top: 1000px;
   width: 100%;
 `;
    

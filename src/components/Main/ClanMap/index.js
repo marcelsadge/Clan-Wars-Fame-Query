@@ -1,9 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import ForceGraph3D from 'react-force-graph-3d';
+import ForceGraph2D from 'react-force-graph-2d';
 import SpriteText from 'three-spritetext';
+import { ClipLoader } from 'react-spinners';
 
 import { getClanMapData, getClanId } from '../../../api/ApiCalls';
+
+const Loader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+`
 
 function ClanMap() {
     const isMounted = useRef(false);
@@ -64,21 +73,28 @@ function ClanMap() {
     }, []);
     
     return (
-        <div>
-            {loading ? <h1>Loading...</h1> : 
-            <ForceGraph3D
+        <div style={{ position: 'fixed' }}>
+            {loading ? 
+                <Loader>
+                    <ClipLoader 
+                    size={150}
+                    color={'white'}
+                    loading={loading}
+                    /> 
+                </Loader>
+                : 
+            <ForceGraph2D
+                width={window.innerWidth}
+                height={window.innerHeight}
                 graphData={generateClanGraph()}
                 nodeThreeObject={(node) => {
-                    const sprite = new SpriteText(node.name, 5);
+                    const sprite = new SpriteText(node.name, 10);
                     sprite.color = node.color;
                     sprite.padding = [8, 4];
                     sprite.textHeight = 5;
                     sprite.borderRadius = 10;
                     return sprite;
                 }}
-                linkDirectionalParticles={1}
-                linkDirectionalParticleWidth={1}
-                linkDirectionalParticleColor={() => "red"}
             />
             }
         </div>
