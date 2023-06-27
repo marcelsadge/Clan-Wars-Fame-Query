@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaBars, FaMap } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
+import { GiStarsStack } from 'react-icons/gi'
 import { TbBrandCampaignmonitor } from 'react-icons/tb';
 
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +38,9 @@ const SideTable = styled.div`
 
 const SideRow = styled.div`
     display: flex;
-    column-gap: 20px;
+    column-gap: 25px;
+    width: 261px;
+    margin-left: 30px;
     &:hover {
         background-color: #28b48c;
         background: linear-gradient(to right, #111111 99%, #28b48c 1%);
@@ -76,6 +79,12 @@ function SideBar({ show }) {
                             <FiHome size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Home
+                            </SideLink>
+                        </SideRow>
+                        <SideRow onClick={() => navigation('/marks')}>
+                            <GiStarsStack size={'23px'} color={'#28b48c'} />
+                            <SideLink>
+                                Marks of Excellence
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => navigation('/clanmapsearch')}>

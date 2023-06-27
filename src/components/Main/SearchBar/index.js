@@ -14,6 +14,7 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin-left: 290px;
 `
 
 const ButtonContainer = styled.div`

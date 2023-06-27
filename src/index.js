@@ -12,13 +12,17 @@ import PageHeader from './components/Main/PageHeader';
 import PlayerStatsPage from './components/Main/PlayerPage';
 import Footer from './components/Main/Footer';
 import SideBar from './components/Main/SideBar';
+import SearchBar from './components/Main/SearchBar';
+import MarksOfExcellence from './components/Main/MarksOfExcellence';
 
 function Core() {
   return (
     <Router>
       <SideBar />
+      <SearchBar />
       <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/marks' element={<MarksOfExcellence />} />
           <Route path='/clanmapsearch' element={<ClanMapSearch />} />
           <Route path='/clanmap' element={<ClanMap />} />
           <Route path='/playerstat' element={<PlayerStatsPage />} />

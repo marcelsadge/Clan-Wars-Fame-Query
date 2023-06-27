@@ -30,6 +30,17 @@ const Loader = styled.div`
     height: 100vh;
 `
 
+const IntroContainer = styled.div`
+    display: flex;
+    background-color: #181c1c;
+    margin-left: 340px;
+    margin-right: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+`
+
 function CampaignHomePage() {
   const [checkLocal, setLocal] = useState(false);
 
@@ -149,6 +160,10 @@ function CampaignHomePage() {
   }, [cutoff, query, clanPlayerFame, tankCount]);
 
   return (
+    <IntroContainer>
+      Sorry! This feature is only available during campaign season. Check back soon!
+    </IntroContainer>
+    /* 
     <div>
       { loading ? 
       <Loader>
@@ -160,9 +175,6 @@ function CampaignHomePage() {
       </Loader> : 
       <div className="Fame-Query-App">
         <div className="Fame-Query-Box">
-          <h1 className='header-name-1'>
-            Wot Fame
-          </h1>
           <h1 className='header-name'>
             Cutoff: 
             &nbsp;{cutoff}
@@ -250,7 +262,7 @@ function CampaignHomePage() {
         </div>
       </div>}
     </div>
-    
+    */
   );
   
 }

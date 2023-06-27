@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import './index.css';
-
-const FameHomePage = styled.div`
+const MarksContainer = styled.div`
     display: flex;
     font-family: 'Secular One';
     background-color: #111111;
@@ -24,17 +22,16 @@ const IntroContainer = styled.div`
     padding: 20px;
     width: 100%;
     color: #fff;
-    font-size: 50px;
 `
 
-function HomePage() {
+function MarksOfExcellence() {
     return( 
-        <FameHomePage>
+        <MarksContainer>
             <IntroContainer>
-                Welcome to the alpha website of Project Fame!
+                Welcome to the Marks of Excellence Page!
             </IntroContainer>
-        </FameHomePage>
+        </MarksContainer>
     );
 }
 
-export default HomePage;
+export default MarksOfExcellence;
