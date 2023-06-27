@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import InputBase from '@mui/material/InputBase';
 
+import { GoSearch } from 'react-icons/go';
+
+import InputBase from '@mui/material/InputBase';
 import { Button } from '@material-ui/core';
 import { ButtonGroup } from '@material-ui/core';
 
@@ -11,36 +13,35 @@ import './index.css';
 const SearchContainer = styled.div`
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 `
 
 const ButtonContainer = styled.div`
     display: flex;
+    position: absolute;
     flex-direction: row;
+    margin-left: 1275px;
 `
 
 const SearchForm = styled.form`
-    margin-left: 1rem;
 `
 const SearchBox = styled.div`
     padding: 5px 4px;
+    position: relative;
     display: flex;
     align-items: center;
-    width: 700px;
-    height: 50px;
-    background-color: #242729;
+    width: 1610px;
+    height: 70px;
     color: white;
-    :hover {
-        background-color: #222527;
-        box-shadow: 0px 1px 3px rgba(20, 20, 50, 1) ;
-    }
+    border-bottom: 1px solid #242c30;
+    border-right: 1px solid #242c30;
 `
 
 const SearchInput = styled(InputBase)`
     width: 100%;
     font-family: 'Secular One' !important;
     color: #fff !important;
-    padding-left: 20px;
+    padding-left: 50px;
     font-size: 16px;
 `
 
@@ -48,10 +49,10 @@ const ServerButton = styled(Button)`
     font-family: 'Secular One' !important;
     font-size: 1rem !important;
     color: #111111;
-    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : '#fff')} !important;
+    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : 'gray')} !important;
     padding: 2px 15px !important;
     &:hover {
-        background-color: gray !important;
+        background-color: #28b48c !important;
     }
 `
 
@@ -87,12 +88,22 @@ function SearchBar() {
 
     return (
         <SearchContainer>
+            <GoSearch style={{ marginLeft: '1rem', position: 'absolute' }} color='lightgray' size='1.5rem' />
+            <SearchForm onSubmit={handleSubmit}>
+                <SearchBox>
+                    <SearchInput
+                        placeholder={ type === '1' ? `Search ${serverArray[parseInt(server) - 1]} Player` : `Search ${serverArray[parseInt(server) - 1]} Clan`}
+                        value={search} 
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </SearchBox>
+            </SearchForm>
             <ButtonContainer>
-                <ButtonGroup style={{ marginRight: '5em' }}>
+                <ButtonGroup style={{ marginRight: '0.5em' }}>
                     {serverOptions.map((svr, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'gray'}
+                            $backgroundColor={'#28b48c'}
                             $option={server === svr.value}
                             onClick={() => setServer(svr.value)}
                         >
@@ -104,7 +115,7 @@ function SearchBar() {
                     {typeOptions.map((t, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'gray'}
+                            $backgroundColor={'#28b48c'}
                             $option={type === t.value}
                             onClick={() => setType(t.value)}
                         >
@@ -113,16 +124,6 @@ function SearchBar() {
                     ))}
                 </ButtonGroup>
             </ButtonContainer>
-            <br />
-            <SearchForm onSubmit={handleSubmit}>
-                <SearchBox>
-                    <SearchInput
-                        placeholder={type === '1' ? `Enter ${serverArray[parseInt(server) - 1]} Player Username` : `Enter ${serverArray[parseInt(server) - 1]} Clan Name`}
-                        value={search} 
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </SearchBox>
-            </SearchForm>
         </SearchContainer>
     );
 }

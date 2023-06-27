@@ -1,25 +1,43 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import SearchBar from '../SearchBar';
 import './index.css';
 
+const FameHomePage = styled.div`
+    display: flex;
+    font-family: 'Secular One';
+    background-color: #111111;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 290px;
+`
+
+const SearchContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+`;
+
+const SearchBarContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 function HomePage() {
-    return(
-        <div>
-            <div className='container'>
-                <h1 style={{ color: '#fff', fontSize: 100 }}>
-                    WoT Fame
-                </h1>
-                <div className='search-bar-container'>
+    return( 
+        <FameHomePage>
+            <SearchContainer>
+                <SearchBarContainer>
                     <SearchBar
                     />
-                </div>
-                <br />
-                <h1 style={{ color: '#fff', fontSize: 12 }}>
-                    Competitive Stats Site For World Of Tanks
-                </h1>
-            </div>
-        </div>
+                </SearchBarContainer>
+            </SearchContainer>
+        </FameHomePage>
     );
 }
 

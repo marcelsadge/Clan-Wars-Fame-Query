@@ -1,34 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-
-body {
-    font-family: 'Secular One';
-    background-color: #111111;
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-.header {
-    color: black;
-}
-
-.container {
-    display: flex;
-    height: 60vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.search-bar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

@@ -25,7 +25,7 @@ function PageHeader() {
 
     return (
       <SideContainer>
-        <FaBars onClick={displaySideBar}/>
+        <FaBars onClick={displaySideBar} color={'#28b48c'}/>
           {sidebar && <SideBar show={setSidebar}/>}
       </SideContainer>
     );

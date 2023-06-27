@@ -11,17 +11,18 @@ import HomePage from './components/Main/HomePage';
 import PageHeader from './components/Main/PageHeader';
 import PlayerStatsPage from './components/Main/PlayerPage';
 import Footer from './components/Main/Footer';
+import SideBar from './components/Main/SideBar';
 
 function Core() {
   return (
     <Router>
-      <PageHeader />
+      <SideBar />
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/clanmapsearch' element={<ClanMapSearch />} />
-        <Route path='/clanmap' element={<ClanMap />} />
-        <Route path='/playerstat' element={<PlayerStatsPage />} />
-        <Route path='campaignstats' element={<CampaignHomePage />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/clanmapsearch' element={<ClanMapSearch />} />
+          <Route path='/clanmap' element={<ClanMap />} />
+          <Route path='/playerstat' element={<PlayerStatsPage />} />
+          <Route path='campaignstats' element={<CampaignHomePage />} />
       </Routes>
       <Footer />
     </Router>
