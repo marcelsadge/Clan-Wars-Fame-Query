@@ -5,7 +5,7 @@ const FBox = styled.div`
   padding: 1px 10px;
   background-color: #151515;
   margin-top: 1000px;
-  margin-left: 300px;
+  margin-left: 290px;
 `;
    
 const Container = styled.div`

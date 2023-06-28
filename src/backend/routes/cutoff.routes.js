@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Cutoff = require('../models/cutoff.models');
+const fetch = require("node-fetch");
 
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';

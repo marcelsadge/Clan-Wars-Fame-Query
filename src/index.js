@@ -18,8 +18,8 @@ import MarksOfExcellence from './components/Main/MarksOfExcellence';
 function Core() {
   return (
     <Router>
-      <SideBar />
       <SearchBar />
+      <SideBar />
       <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/marks' element={<MarksOfExcellence />} />

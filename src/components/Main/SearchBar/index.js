@@ -12,9 +12,11 @@ import './index.css';
 
 const SearchContainer = styled.div`
     display: flex;
+    position: fixed;
     align-items: center;
     flex-direction: row;
     margin-left: 290px;
+    background-color: #111111;
 `
 
 const ButtonContainer = styled.div`
@@ -42,7 +44,7 @@ const SearchInput = styled(InputBase)`
     width: 100%;
     font-family: 'Secular One' !important;
     color: #fff !important;
-    padding-left: 50px;
+    padding-left: 60px;
     font-size: 16px;
 `
 
@@ -89,7 +91,7 @@ function SearchBar() {
 
     return (
         <SearchContainer>
-            <GoSearch style={{ marginLeft: '1rem', position: 'absolute' }} color='lightgray' size='1.5rem' />
+            <GoSearch style={{ marginLeft: '25px', position: 'absolute' }} color='lightgray' size='1.5rem' />
             <SearchForm onSubmit={handleSubmit}>
                 <SearchBox>
                     <SearchInput

@@ -16,7 +16,7 @@ const IntroContainer = styled.div`
     display: flex;
     background-color: #181c1c;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-right: 50px;
     border-radius: 20px;
     padding: 20px;

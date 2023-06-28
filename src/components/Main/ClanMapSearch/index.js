@@ -8,6 +8,11 @@ const SearchContainer = styled.div`
     align-items: center;
     flex-direction: column;
 `
+
+const Box = styled.div`
+    margin-top: 100px;
+`
+
 const SearchForm = styled.form`
     margin-left: 1rem;
 `
@@ -45,18 +50,20 @@ function ClanMapSearch() {
 
     return (
         <SearchContainer>
-            <h1 style={{ color: '#fff', fontSize: 100 }}>
-                    Clan Map Search
-            </h1>
-            <SearchForm onSubmit={handleSubmit}>
-                <SearchBox>
-                    <SearchInput
-                        placeholder={'Enter Clan Tag'}
-                        value={search} 
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </SearchBox>
-            </SearchForm>
+            <Box>
+                <h1 style={{ color: '#fff', fontSize: 100 }}>
+                        Clan Map Search
+                </h1>
+                <SearchForm onSubmit={handleSubmit}>
+                    <SearchBox>
+                        <SearchInput
+                            placeholder={'Enter Clan Tag'}
+                            value={search} 
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </SearchBox>
+                </SearchForm>
+            </Box>
         </SearchContainer>
     );
 }
