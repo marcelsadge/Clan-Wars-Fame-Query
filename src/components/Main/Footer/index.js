@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const FBox = styled.div`
   padding: 1px 10px;
   background-color: #151515;
-  margin-top: 1000px;
+  margin-top: 1200px;
   margin-left: 290px;
 `;
    

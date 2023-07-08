@@ -23,7 +23,7 @@ const ButtonContainer = styled.div`
     display: flex;
     position: absolute;
     flex-direction: row;
-    margin-left: 1275px;
+    margin-left: 72%;
 `
 
 const SearchForm = styled.form`
@@ -33,7 +33,7 @@ const SearchBox = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    width: 1610px;
+    width: 88vw;
     height: 70px;
     color: white;
     border-bottom: 1px solid #242c30;
