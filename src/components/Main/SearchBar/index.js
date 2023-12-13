@@ -23,7 +23,7 @@ const ButtonContainer = styled.div`
     display: flex;
     position: absolute;
     flex-direction: row;
-    margin-left: 72%;
+    margin-left: 65%;
 `
 
 const SearchForm = styled.form`
@@ -38,18 +38,19 @@ const SearchBox = styled.div`
     color: white;
     border-bottom: 1px solid #242c30;
     border-right: 1px solid #242c30;
+    font-weight: bold;
 `
 
 const SearchInput = styled(InputBase)`
     width: 100%;
-    font-family: 'Secular One' !important;
+    font-family: Segoe UI !important;
     color: #fff !important;
     padding-left: 60px;
     font-size: 16px;
 `
 
 const ServerButton = styled(Button)`
-    font-family: 'Secular One' !important;
+font-family: Segoe UI !important;
     font-size: 1rem !important;
     color: #111111;
     background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : 'gray')} !important;

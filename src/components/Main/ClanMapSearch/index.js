@@ -7,6 +7,7 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-left: 290px;
 `
 
 const Box = styled.div`
@@ -32,7 +33,7 @@ const SearchBox = styled.div`
 
 const SearchInput = styled(InputBase)`
     width: 100%;
-    font-family: 'Secular One' !important;
+    font-family: Segoe UI !important;
     color: #fff !important;
     padding-left: 20px;
     font-size: 16px;

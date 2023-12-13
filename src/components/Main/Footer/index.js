@@ -66,10 +66,6 @@ function Footer () {
       <Container>
         <Row>
           <Column>
-            <Heading>About (Coming Soon)</Heading>
-          </Column>
-          <Column>
-            <Heading>Contact (Coming Soon)</Heading>
           </Column>
         </Row>
         <AuthorHeading>Created by:{' '}

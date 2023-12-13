@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { FaBars, FaMap } from 'react-icons/fa';
+import { FaBars, FaMap, FaChartLine, FaBloggerB, FaMailBulk } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
 import { GiStarsStack } from 'react-icons/gi'
 import { TbBrandCampaignmonitor } from 'react-icons/tb';
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SideBarComponent = styled.div`
     background-color: #111111;
+    font-family: Segoe UI;
     position: fixed;
     height: 100%;
     width: 290px;
@@ -33,13 +34,13 @@ const SideGrid = styled.div`
 const SideTable = styled.div`
     display: flex;
     flex-direction: column;
-    grid-gap: 20px;
 `;
 
 const SideRow = styled.div`
     display: flex;
-    column-gap: 25px;
-    width: 261px;
+    padding: 10px;
+    column-gap: 10px;
+    width: 260px;
     margin-left: 30px;
     &:hover {
         background-color: #28b48c;
@@ -50,6 +51,7 @@ const SideRow = styled.div`
 const SideLink = styled.a`
   color: #28b48c;
   font-size: 18px;
+  font-weight: bold;
   text-decoration: none;
 `;
 
@@ -70,7 +72,7 @@ function SideBar({ show }) {
     return (
         <SideBarComponent>
             <Title>
-                Project Fame
+                In Progress Project
             </Title>
             <SideContainer>
                 <SideGrid>
@@ -87,6 +89,12 @@ function SideBar({ show }) {
                                 Marks of Excellence
                             </SideLink>
                         </SideRow>
+                        <SideRow onClick={() => navigation('/stats')}>
+                            <FaChartLine size={'23px'} color={'#28b48c'} />
+                            <SideLink>
+                                Trends
+                            </SideLink>
+                        </SideRow>
                         <SideRow onClick={() => navigation('/clanmapsearch')}>
                             <FaMap size={'23px'} color={'#28b48c'} />
                             <SideLink>
@@ -97,6 +105,18 @@ function SideBar({ show }) {
                             <TbBrandCampaignmonitor size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Campaign Stats
+                            </SideLink>
+                        </SideRow>
+                        <SideRow onClick={() => navigation('/blog')}>
+                            <FaBloggerB size={'23px'} color={'#28b48c'} />
+                            <SideLink>
+                                Blog
+                            </SideLink>
+                        </SideRow>
+                        <SideRow onClick={() => navigation('/contact')}>
+                            <FaMailBulk size={'23px'} color={'#28b48c'} />
+                            <SideLink>
+                                Contact
                             </SideLink>
                         </SideRow>
                     </SideTable>

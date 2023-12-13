@@ -5,7 +5,7 @@ import './index.css';
 
 const FameHomePage = styled.div`
     display: flex;
-    font-family: 'Secular One';
+    font-family: 'Segoe UI';
     background-color: #111111;
     height: auto;
     background-position: center;
@@ -88,7 +88,7 @@ function HomePage() {
             <HomeColumn>
                 <HomeRow>
                     <IntroContainer>
-                        Welcome to Project Fame alpha v0.1!
+                        Welcome to !
                     </IntroContainer>
                 </HomeRow>
                 <HomeRow>
