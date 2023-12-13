@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
 
-import { getPlayerId, getPlayerStatistics, getTankNameById } from '../../../api/apicalls';
+import { getPlayerId, getPlayerStatistics, getTankNameById } from '../../../api/apiCalls';
 
 const Loader = styled.div`
     display: flex;

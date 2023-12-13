@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -17,13 +17,14 @@ const SearchContainer = styled.div`
     flex-direction: row;
     margin-left: 290px;
     background-color: #111111;
+    width: 100%;
 `
 
 const ButtonContainer = styled.div`
     display: flex;
     position: absolute;
     flex-direction: row;
-    margin-left: 65%;
+    margin-left: 75%;
 `
 
 const SearchForm = styled.form`
