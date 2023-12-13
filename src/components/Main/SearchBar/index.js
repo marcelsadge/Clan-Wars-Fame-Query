@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { GoSearch } from 'react-icons/go';
@@ -17,14 +17,12 @@ const SearchContainer = styled.div`
     flex-direction: row;
     margin-left: 290px;
     background-color: #111111;
-    width: 100%;
 `
 
 const ButtonContainer = styled.div`
-    display: flex;
     position: absolute;
-    flex-direction: row;
-    margin-left: 75%;
+    width: 40%;
+    right: 0;
 `
 
 const SearchForm = styled.form`
@@ -51,11 +49,11 @@ const SearchInput = styled(InputBase)`
 `
 
 const ServerButton = styled(Button)`
-font-family: Segoe UI !important;
+    font-family: Segoe UI !important;
     font-size: 1rem !important;
     color: #111111;
     background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : 'gray')} !important;
-    padding: 2px 15px !important;
+    padding: 5px 15px !important;
     &:hover {
         background-color: #28b48c !important;
     }
@@ -85,7 +83,7 @@ function SearchBar() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (type === '1') {
-            navigation('/playerstat', { state: { playerName: search } });
+            navigation(generatePath('/player/:name', { name: search }), { state: { playerName: search } });
         } else {
             navigation('/clanmap', { state: { clanName: search } });
         }

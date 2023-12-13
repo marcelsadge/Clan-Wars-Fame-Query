@@ -83,6 +83,10 @@ function SideBar({ props }) {
     const navigation = useNavigate();
 
     const handleOnClick = (navi) => {
+        setContext(navi);
+    };
+
+    useEffect(() => {
         setPosition(
             currContext === "/" ? "1px" : ( 
             currContext === "/marks" ? "43px" : ( 
@@ -91,15 +95,8 @@ function SideBar({ props }) {
             currContext === "/campaignstats" ? "169px" : (
             currContext === "/blog" ? "210px" : (
             currContext === "/contact" ? "253px" : "")))))));
-        setContext(navi);
-    };
-
-    useEffect(() => {
         navigation(currContext);
     }, [currContext]);
-
-    useEffect(() => {
-    }, [currPosition])
     
     return (
         <SideBarComponent>

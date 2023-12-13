@@ -58,7 +58,6 @@ function ClanMapSearch() {
                 <SearchForm onSubmit={handleSubmit}>
                     <SearchBox>
                         <SearchInput
-                            placeholder={'Enter Clan Tag'}
                             value={search} 
                             onChange={(e) => setSearch(e.target.value)}
                         />

@@ -88,7 +88,7 @@ function HomePage() {
             <HomeColumn>
                 <HomeRow>
                     <IntroContainer>
-                        Welcome to !
+                        Intro Box
                     </IntroContainer>
                 </HomeRow>
                 <HomeRow>

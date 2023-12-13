@@ -27,15 +27,15 @@ function Core() {
     <PageContext.Provider value={{currContext, setContext}}>
       <PositionContext.Provider value={{currPosition, setPosition}}>
       <Router>
-          <SearchBar />
           <SideBar />
+          <SearchBar />
           <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/marks' element={<MarksOfExcellence />} />
               <Route path='/stats' element={<Trends />} />
               <Route path='/clanmap' element={<ClanMap />} />
               <Route path='/clanmapsearch' element={<ClanMapSearch />} />
-              <Route path='/playerstat' element={<PlayerStatsPage />} />
+              <Route path='/player/:name' element={<PlayerStatsPage />} />
               <Route path='/blog' element={<Blog />} />
               <Route path='/campaignstats' element={<CampaignHomePage />} />
               <Route path='/contact' element={<Contact />} />
