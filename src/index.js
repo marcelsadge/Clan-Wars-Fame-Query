@@ -17,12 +17,15 @@ import SideBar from './components/Main/SideBar';
 import SearchBar from './components/Main/SearchBar';
 import MarksOfExcellence from './components/Main/MarksOfExcellence';
 import PageContext from './components/Context/pagecontext';
+import PositionContext from './components/Context/positioncontext';
 
 function Core() {
   const [currContext, setContext] = useState("/");
+  const [currPosition, setPosition] = useState("0px");
 
   return (
     <PageContext.Provider value={{currContext, setContext}}>
+      <PositionContext.Provider value={{currPosition, setPosition}}>
       <Router>
           <SearchBar />
           <SideBar />
@@ -39,6 +42,7 @@ function Core() {
           </Routes>
           <Footer />
       </Router>
+      </PositionContext.Provider>
     </PageContext.Provider>
   );
 }

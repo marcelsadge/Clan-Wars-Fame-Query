@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaBars, FaMap, FaChartLine, FaBloggerB, FaMailBulk } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
@@ -8,6 +8,7 @@ import { TbBrandCampaignmonitor } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 
 import PageContext from '../../Context/pagecontext';
+import PositionContext from '../../Context/positioncontext';
 
 const SideBarComponent = styled.div`
     background-color: #111111;
@@ -40,7 +41,7 @@ const SideTable = styled.div`
 
 const SideRow = styled.div`
     display: flex;
-    padding: 10px;
+    padding: 9px;
     column-gap: 10px;
     width: 260px;
     margin-left: 30px;
@@ -65,18 +66,40 @@ const Title = styled.div`
     text-align: center;
 `
 
-function SideBar({ show }) {
+const PageIndicator = styled.div`
+    position: absolute;
+    background: #28b48c;
+    margin-left: 288px;
+    margin-top: ${(props) => props.currPosition};
+    padding: 20px;
+    padding-left: 1px;
+    padding-right: 1px;
+`;
+
+function SideBar({ props }) {
     const {currContext, setContext} = useContext(PageContext);
+    const {currPosition, setPosition} = useContext(PositionContext);
 
     const navigation = useNavigate();
 
     const handleOnClick = (navi) => {
+        setPosition(
+            currContext === "/" ? "1px" : ( 
+            currContext === "/marks" ? "43px" : ( 
+            currContext === "/stats" ? "85px" : (
+            currContext === "/clanmapsearch" ? "127px" : (
+            currContext === "/campaignstats" ? "169px" : (
+            currContext === "/blog" ? "210px" : (
+            currContext === "/contact" ? "253px" : "")))))));
         setContext(navi);
     };
 
     useEffect(() => {
         navigation(currContext);
     }, [currContext]);
+
+    useEffect(() => {
+    }, [currPosition])
     
     return (
         <SideBarComponent>
@@ -86,6 +109,7 @@ function SideBar({ show }) {
             <SideContainer>
                 <SideGrid>
                     <SideTable>
+                    <PageIndicator currPosition={currPosition} />
                         <SideRow onClick={() => handleOnClick('/')}>
                             <FiHome size={'23px'} color={'#28b48c'} />
                             <SideLink>
