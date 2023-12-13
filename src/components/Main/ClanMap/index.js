@@ -5,7 +5,7 @@ import ForceGraph2D from 'react-force-graph-2d';
 import SpriteText from 'three-spritetext';
 import { ClipLoader } from 'react-spinners';
 
-import { getClanMapData, getClanId } from '../../../api/apiCalls';
+import { getClanMapData, getClanId } from '../../../api/apicalls';
 
 const Loader = styled.div`
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaBars, FaMap, FaChartLine, FaBloggerB, FaMailBulk } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
@@ -6,6 +6,8 @@ import { GiStarsStack } from 'react-icons/gi'
 import { TbBrandCampaignmonitor } from 'react-icons/tb';
 
 import { useNavigate } from 'react-router-dom';
+
+import PageContext from '../../Context/pagecontext';
 
 const SideBarComponent = styled.div`
     background-color: #111111;
@@ -64,10 +66,17 @@ const Title = styled.div`
 `
 
 function SideBar({ show }) {
+    const {currContext, setContext} = useContext(PageContext);
+
     const navigation = useNavigate();
 
+    const handleOnClick = (navi) => {
+        setContext(navi);
+    };
+
     useEffect(() => {
-    }, []);
+        navigation(currContext);
+    }, [currContext]);
     
     return (
         <SideBarComponent>
@@ -77,43 +86,43 @@ function SideBar({ show }) {
             <SideContainer>
                 <SideGrid>
                     <SideTable>
-                        <SideRow onClick={() => navigation('/')}>
+                        <SideRow onClick={() => handleOnClick('/')}>
                             <FiHome size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Home
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/marks')}>
+                        <SideRow onClick={() => handleOnClick('/marks')}>
                             <GiStarsStack size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Marks of Excellence
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/stats')}>
+                        <SideRow onClick={() => handleOnClick('/stats')}>
                             <FaChartLine size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Trends
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/clanmapsearch')}>
+                        <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
                             <FaMap size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Clan Map
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/campaignstats')}>
+                        <SideRow onClick={() => handleOnClick('/campaignstats')}>
                             <TbBrandCampaignmonitor size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Campaign Stats
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/blog')}>
+                        <SideRow onClick={() => handleOnClick('/blog')}>
                             <FaBloggerB size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Blog
                             </SideLink>
                         </SideRow>
-                        <SideRow onClick={() => navigation('/contact')}>
+                        <SideRow onClick={() => handleOnClick('/contact')}>
                             <FaMailBulk size={'23px'} color={'#28b48c'} />
                             <SideLink>
                                 Contact

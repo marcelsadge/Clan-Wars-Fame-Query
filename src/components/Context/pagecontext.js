@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const PageContext = createContext({context: "", navi: ""});
+const PageContext = createContext('/');
 
 export default PageContext;

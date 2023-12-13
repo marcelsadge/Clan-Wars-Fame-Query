@@ -9,7 +9,7 @@ import {
   getClanId, 
   getTankClanCount, 
   getAllClanIds,
-  getAvailableClans} from '../../../api/apiCalls';
+  getAvailableClans} from '../../../api/apicalls';
 
 import './index.css';
 
