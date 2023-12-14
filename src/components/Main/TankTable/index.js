@@ -1,36 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const TableContainer = styled.div`
-    font-family: 'Secular One' !important;
-    overflow-x: auto;
-    overflow-y: auto;
-`;
-
-const TankTable = styled.table`
-    white-space: nowrap;
-    position: sticky;
-    border-spacing: 0;
-    width: 100%;
-    font-size: 0.75rem;
-    font-family: 'Secular One' !important;
-    backdrop-filter: blur(7px);
-`;
-
-const playerTankHeaders = {
-    tank: "Tank",
-    nation: "Nation",
-    tier: "Tier",
-    class: "Class",
-    battles: "Battles",
-    wn8: "WN8",
-    winrate: "WR",
-    dpg: "DPG",
-    kills: "kills",
-    exp: "Exp",
-    spots: "Spots",
-    survival: "Survival",
-};
+import { TableContainer, TankTable, PlayerTankHeaders } from './styles';
 
 function PlayerPageTable({ data }) {
     const {

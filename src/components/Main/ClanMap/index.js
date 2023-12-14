@@ -1,18 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import ForceGraph2D from 'react-force-graph-2d';
 import SpriteText from 'three-spritetext';
 import { ClipLoader } from 'react-spinners';
 
 import { getClanMapData, getClanId } from '../../../api/apicalls';
-
-const Loader = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-`
+import { Loader } from './styles';
 
 function ClanMap() {
     const isMounted = useRef(false);

@@ -2,57 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { ClipLoader } from 'react-spinners';
-import styled from 'styled-components';
+
+import { 
+    Loader,
+    PlayerPage,
+    TextFont,
+    TopStats,
+    StatsContainer,
+    RecentStats,
+    NameContainer,
+} from './styles';
 
 import { getPlayerId, getPlayerStatistics, getTankNameById } from '../../../api/apicalls';
-
-const Loader = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-`
-
-const PlayerPage = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-`
-
-const TextFont = styled.div`
-    font-size: ${({ $font }) => $font} !important;
-    color: white;
-`
-
-const TopStats = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-`
-
-const StatsContainer = styled.div`
-    display: flex;
-    font-size: 36px;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`
-
-const RecentStats = styled.div`
-`
-
-const NameContainer = styled.div`
-    display: flex;
-    justify-content: left;
-    font-size: 52px;
-    color: white;
-    margin-left: 100px;
-`
-
-const statContainer = {
-
-};
 
 function PlayerStatsPage() {
     const [loading, setLoading] = useState(false);

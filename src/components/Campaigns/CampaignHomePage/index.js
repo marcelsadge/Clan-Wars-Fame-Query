@@ -11,38 +11,20 @@ import {
   getAllClanIds,
   getAvailableClans} from '../../../api/apicalls';
 
-import './index.css';
-
 import { ClipLoader } from 'react-spinners';
-import styled from 'styled-components';
 import CampaignClanDisplay from '../CampaignClanDisplay/index';
 import CampaignTankCountDisplay from '../CampaignTankCountDisplay/index';
 import SearchBar from '../CampaignSearchBar/index';
 
+import {
+  Loader,
+  CampaignStatsPage,
+  IntroContainer
+} from './styles';
+
 const api_key = 'a1ade2adb0a147e81c3115c498bbb1c7';
 const event_id = 'we_2023';
 const front_id = 'we_2023_bg';
-
-const Loader = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-`
-
-const CampaignStatsPage = styled.div`
-  display: flex;
-`
-
-const IntroContainer = styled.div`
-    background-color: #181c1c;
-    margin-top: 100px;
-    margin-left: 340px;
-    margin-right: 50px;
-    border-radius: 20px;
-    padding: 20px;
-    color: #fff;
-`
 
 function CampaignHomePage() {
   const [checkLocal, setLocal] = useState(false);
