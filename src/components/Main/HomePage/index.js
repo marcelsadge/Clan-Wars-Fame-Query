@@ -12,6 +12,7 @@ import {
 } from './styles';
 
 function HomePage() {
+    /*
     return( 
         <FameHomePage>
             <HomeColumn>
@@ -48,6 +49,12 @@ function HomePage() {
             </HomeColumn>
         </FameHomePage>
     );
+    */
+   return (
+    <FameHomePage>
+        a
+    </FameHomePage>
+   );
 }
 
 export default HomePage;

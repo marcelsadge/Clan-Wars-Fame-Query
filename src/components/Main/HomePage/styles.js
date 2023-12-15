@@ -5,8 +5,7 @@ import './index.css';
 const FameHomePage = styled.div`
     display: flex;
     font-family: 'Segoe UI';
-    background-color: #111111;
-    height: auto;
+    background-color: #03022b;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

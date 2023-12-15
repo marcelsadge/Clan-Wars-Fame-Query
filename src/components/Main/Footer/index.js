@@ -18,9 +18,9 @@ function Footer () {
           <Column>
           </Column>
         </Row>
-        <AuthorHeading>Created by:{' '}
+        <AuthorHeading>@{' '}
             <FooterLink href="https://worldoftanks.com/en/community/accounts/1002512469-MarceI_/?utm_source=global-nav&utm_medium=link&utm_campaign=wot-portal">
-                Marcel
+                Marcel 2024
             </FooterLink>
         </AuthorHeading>
       </Container>

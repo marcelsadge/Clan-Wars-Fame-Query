@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 import InputBase from '@mui/material/InputBase';
 import { Button } from '@material-ui/core';
-import { ButtonGroup } from '@material-ui/core';
 
 const SearchContainer = styled.div`
     display: flex;
     position: fixed;
     align-items: center;
     flex-direction: row;
+    background-color: #03022b;
     margin-left: 290px;
-    background-color: #111111;
 `;
 
 const ButtonContainer = styled.div`
@@ -20,14 +19,14 @@ const ButtonContainer = styled.div`
 
 const SearchForm = styled.form`
 `;
+
 const SearchBox = styled.div`
     padding: 5px 4px;
     position: relative;
     display: flex;
     align-items: center;
     width: 88vw;
-    height: 70px;
-    color: white;
+    height: 75px;
     border-bottom: 1px solid #242c30;
     border-right: 1px solid #242c30;
     font-weight: bold;
@@ -36,7 +35,7 @@ const SearchBox = styled.div`
 const SearchInput = styled(InputBase)`
     width: 100%;
     font-family: Segoe UI !important;
-    color: #fff !important;
+    color: #b7abe3 !important;
     padding-left: 60px;
     font-size: 16px;
 `;
@@ -44,11 +43,10 @@ const SearchInput = styled(InputBase)`
 const ServerButton = styled(Button)`
     font-family: Segoe UI !important;
     font-size: 1rem !important;
-    color: #111111;
-    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : 'lightgray')} !important;
+    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : '#b7abe3')} !important;
     padding: 2px 10px !important;
     &:hover {
-        background-color: #28b48c !important;
+        background-color: #fd9c9d !important;
     }
 `;
 

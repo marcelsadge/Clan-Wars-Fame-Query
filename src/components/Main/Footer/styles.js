@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const FBox = styled.div`
   padding: 1px 10px;
-  background-color: #151515;
+  background-color: #03022b;
   margin-top: 1200px;
   margin-left: 290px;
+  border-top: 1px solid #242c30;
 `;
    
 const Container = styled.div`
@@ -31,7 +32,7 @@ const Row = styled.div`
 `;
    
 const FooterLink = styled.a`
-  color: #fff;
+  color: #b7abe3;
   margin-bottom: 20px;
   font-size: 18px;
   text-decoration: none;
@@ -52,7 +53,7 @@ const Heading = styled.p`
 
 const AuthorHeading = styled.p`
   font-size: 14px;
-  color: #fff;
+  color: #b7abe3;
   margin-bottom: 20px;
   margin-top: 10px;
   margin-left: 400px;

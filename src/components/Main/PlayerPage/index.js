@@ -3,17 +3,16 @@ import { useLocation } from 'react-router-dom';
 
 import { ClipLoader } from 'react-spinners';
 
-import { 
+import { getPlayerId, getPlayerStatistics, getTankNameById } from '../../../api/apicalls';
+import {
     Loader,
     PlayerPage,
     TextFont,
     TopStats,
     StatsContainer,
     RecentStats,
-    NameContainer,
+    NameContainer
 } from './styles';
-
-import { getPlayerId, getPlayerStatistics, getTankNameById } from '../../../api/apicalls';
 
 function PlayerStatsPage() {
     const [loading, setLoading] = useState(false);

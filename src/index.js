@@ -8,7 +8,7 @@ import ClanMapSearch from './components/Main/ClanMapSearch';
 import ClanMap from './components/Main/ClanMap';
 
 import Blog from './components/Main/Blog';
-import Contact from './components/Main/Contact';
+import Info from './components/Main/Info';
 import Trends from './components/Main/Trends';
 import HomePage from './components/Main/HomePage';
 import PlayerStatsPage from './components/Main/PlayerPage';
@@ -38,7 +38,7 @@ function Core() {
               <Route path='/player/:name' element={<PlayerStatsPage />} />
               <Route path='/blog' element={<Blog />} />
               <Route path='/campaignstats' element={<CampaignHomePage />} />
-              <Route path='/contact' element={<Contact />} />
+              <Route path='/Info' element={<Info />} />
           </Routes>
           <Footer />
       </Router>

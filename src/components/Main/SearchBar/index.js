@@ -45,7 +45,7 @@ function SearchBar() {
 
     return (
         <SearchContainer>
-            <GoSearch style={{ marginLeft: '25px', position: 'absolute' }} color='lightgray' size='1.5rem' />
+            <GoSearch style={{ position: 'absolute', marginLeft: '20px' }} color='#fd9c9d' size='1.5rem' />
             <SearchForm onSubmit={handleSubmit}>
                 <SearchBox>
                     <SearchInput
@@ -60,7 +60,7 @@ function SearchBar() {
                     {serverOptions.map((svr, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'#28b48c'}
+                            $backgroundColor={'#fd9c9d'}
                             $option={server === svr.value}
                             onClick={() => setServer(svr.value)}
                         >
@@ -72,7 +72,7 @@ function SearchBar() {
                     {typeOptions.map((t, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'#28b48c'}
+                            $backgroundColor={'#fd9c9d'}
                             $option={type === t.value}
                             onClick={() => setType(t.value)}
                         >
