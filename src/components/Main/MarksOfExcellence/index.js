@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { MarksContainer, IntroContainer } from './styles';
+import { MarksContainer } from './styles';
 
 function MarksOfExcellence() {
 
@@ -10,9 +10,7 @@ function MarksOfExcellence() {
 
     return( 
         <MarksContainer>
-            <IntroContainer>
-                Welcome to the Marks of Excellence Page!
-            </IntroContainer>
+
         </MarksContainer>
     );
 }

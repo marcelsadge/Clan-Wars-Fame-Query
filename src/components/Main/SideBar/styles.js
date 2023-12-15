@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SideBarComponent = styled.div`
-    background-color: #03022b;
+    background-color: #08010c;
     font-family: Segoe UI;
     position: fixed;
     height: 100%;
@@ -37,8 +37,10 @@ const SideRow = styled.div`
     width: 259px;
     margin-left: 30px;
     &:hover {
-        background: linear-gradient(to right, #03022b 99%, #b7abe3 1%);
+        background: linear-gradient(to right, #08010c 99%, #b7abe3 1%);
         cursor: pointer;
+        opacity: 0.8;
+        transition: 1s;
     }
 `
 const SideLink = styled.a`
@@ -55,7 +57,6 @@ const Title = styled.div`
     font-weight: bold;
     padding: 21px;
     text-align: center;
-    border-bottom: 1px solid #242c30;
 `;
 
 const PageIndicator = styled.div`

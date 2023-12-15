@@ -4,6 +4,8 @@ import { generatePath, useNavigate } from 'react-router-dom';
 import { GoSearch } from 'react-icons/go';
 import { ButtonGroup } from '@material-ui/core';
 
+import { ThemeProvider } from '@material-ui/core';
+
 import {
     SearchContainer,
     ButtonContainer,

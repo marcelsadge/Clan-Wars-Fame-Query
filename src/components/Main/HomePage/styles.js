@@ -5,12 +5,14 @@ import './index.css';
 const FameHomePage = styled.div`
     display: flex;
     font-family: 'Segoe UI';
-    background-color: #03022b;
+    background-color: #08010c;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 290px;
     flex-wrap: wrap;
+    height: 100vh;
+    width: 100wh;
 `;
 
 const HomeRow = styled.div`

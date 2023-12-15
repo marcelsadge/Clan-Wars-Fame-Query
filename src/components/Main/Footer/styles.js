@@ -2,16 +2,18 @@ import styled from 'styled-components';
 
 const FBox = styled.div`
   padding: 1px 10px;
-  background-color: #03022b;
+  background-color: #08010c;
   margin-top: 1200px;
   margin-left: 290px;
   border-top: 1px solid #242c30;
+  bottom: 0;
+  margin: auto;
 `;
    
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     max-width: 1000px;
     margin: 0 auto;
 `;

@@ -7,8 +7,9 @@ const SearchContainer = styled.div`
     position: fixed;
     align-items: center;
     flex-direction: row;
-    background-color: #03022b;
+    background-color: #08010c;
     margin-left: 290px;
+    width: 90%;
 `;
 
 const ButtonContainer = styled.div`
@@ -25,8 +26,8 @@ const SearchBox = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    width: 88vw;
-    height: 75px;
+    width: 100vw;
+    height: 70px;
     border-bottom: 1px solid #242c30;
     border-right: 1px solid #242c30;
     font-weight: bold;
@@ -44,7 +45,7 @@ const ServerButton = styled(Button)`
     font-family: Segoe UI !important;
     font-size: 1rem !important;
     background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : '#b7abe3')} !important;
-    padding: 2px 10px !important;
+    padding: 2px 20px !important;
     &:hover {
         background-color: #fd9c9d !important;
     }

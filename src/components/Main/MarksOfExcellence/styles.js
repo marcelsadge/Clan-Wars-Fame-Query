@@ -9,21 +9,10 @@ const MarksContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 290px;
-`;
-
-const IntroContainer = styled.div`
-    display: flex;
-    background-color: #181c1c;
-    margin-left: 50px;
-    margin-top: 100px;
-    margin-right: 50px;
-    border-radius: 20px;
-    padding: 20px;
-    width: 100%;
-    color: #fff;
+    height: 100vh;
+    width: 100wh;
 `;
 
 export {
-    MarksContainer,
-    IntroContainer
+    MarksContainer
 };
