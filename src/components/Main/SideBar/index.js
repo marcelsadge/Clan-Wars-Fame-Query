@@ -52,43 +52,43 @@ function SideBar({ props }) {
                     <SideTable>
                     <PageIndicator currPosition={currPosition} />
                         <SideRow onClick={() => handleOnClick('/')}>
-                            <FiHome size={'23px'} color={'#b7abe3'} />
+                            <FiHome size={'23px'} color={'white'} />
                             <SideLink>
                                 Home
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/marks')}>
-                            <GiStarsStack size={'23px'} color={'#b7abe3'} />
+                            <GiStarsStack size={'23px'} color={'white'} />
                             <SideLink>
                                 Marks of Excellence
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/stats')}>
-                            <FaChartLine size={'23px'} color={'#b7abe3'} />
+                            <FaChartLine size={'23px'} color={'white'} />
                             <SideLink>
                                 Trends
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
-                            <FaMap size={'23px'} color={'#b7abe3'} />
+                            <FaMap size={'23px'} color={'white'} />
                             <SideLink>
                                 Clan Map
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/campaignstats')}>
-                            <TbBrandCampaignmonitor size={'23px'} color={'#b7abe3'} />
+                            <TbBrandCampaignmonitor size={'23px'} color={'white'} />
                             <SideLink>
                                 Campaign Stats
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/blog')}>
-                            <FaBloggerB size={'23px'} color={'#b7abe3'} />
+                            <FaBloggerB size={'23px'} color={'white'} />
                             <SideLink>
                                 Blog
                             </SideLink>
                         </SideRow>
                         <SideRow onClick={() => handleOnClick('/info')}>
-                            <FaMailBulk size={'23px'} color={'#b7abe3'} />
+                            <FaMailBulk size={'23px'} color={'white'} />
                             <SideLink>
                                 Info
                             </SideLink>

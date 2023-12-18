@@ -1,3 +1,3 @@
-# Clan Wars Fame Query
+# Project Fame
 
-World of Tanks website to track fame points during campaigns. Website at www.wotfame.com.
+World of Tanks statistics website. Website at www.wotfame.com.

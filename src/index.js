@@ -19,6 +19,8 @@ import MarksOfExcellence from './components/Main/MarksOfExcellence';
 import PageContext from './components/Context/pagecontext';
 import PositionContext from './components/Context/positioncontext';
 
+import "@fontsource/nunito";
+
 function Core() {
   const [currContext, setContext] = useState("/");
   const [currPosition, setPosition] = useState("0px");

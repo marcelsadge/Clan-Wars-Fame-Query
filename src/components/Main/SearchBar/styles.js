@@ -7,8 +7,8 @@ const SearchContainer = styled.div`
     position: fixed;
     align-items: center;
     flex-direction: row;
-    background-color: #08010c;
-    margin-left: 290px;
+    background: #141729;
+    margin-left: 350px;
     width: 90%;
 `;
 
@@ -44,10 +44,10 @@ const SearchInput = styled(InputBase)`
 const ServerButton = styled(Button)`
     font-family: Segoe UI !important;
     font-size: 1rem !important;
-    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : '#b7abe3')} !important;
+    background-color: ${({ $option, $backgroundColor }) => ($option ? $backgroundColor : '#E63946')} !important;
     padding: 2px 20px !important;
     &:hover {
-        background-color: #fd9c9d !important;
+        background-color: #87F5FB !important;
     }
 `;
 

@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 const FBox = styled.div`
   padding: 1px 10px;
-  background-color: #08010c;
+  background: #101221;
   margin-top: 1200px;
   margin-left: 290px;
-  border-top: 1px solid #242c30;
   bottom: 0;
   margin: auto;
 `;
