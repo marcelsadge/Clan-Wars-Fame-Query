@@ -9,16 +9,27 @@ const Loader = styled.div`
 `;
 
 const CampaignStatsPage = styled.div`
-  display: flex;
+    display: flex;
+    font-family: 'Nunito';
+    background: linear-gradient(#141729, #212840, #101221);
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 290px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    width: 100wh;
 `;
 
 const IntroContainer = styled.div`
     background-color: #181c1c;
     margin-top: 100px;
-    margin-left: 340px;
     margin-right: 50px;
     border-radius: 20px;
     padding: 20px;
+    height: 100px;
     color: #fff;
 `;
 

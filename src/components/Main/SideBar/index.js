@@ -33,12 +33,12 @@ function SideBar({ props }) {
     useEffect(() => {
         setPosition(
             currContext === "/" ? "1px" : ( 
-            currContext === "/marks" ? "42px" : ( 
-            currContext === "/stats" ? "82px" : (
-            currContext === "/clanmapsearch" ? "121px" : (
-            currContext === "/campaignstats" ? "165px" : (
-            currContext === "/blog" ? "206px" : (
-            currContext === "/info" ? "247px" : "")))))));
+            currContext === "/marks" ? "45px" : ( 
+            currContext === "/stats" ? "88px" : (
+            currContext === "/clanmapsearch" ? "130px" : (
+            currContext === "/campaignstats" ? "174px" : (
+            currContext === "/blog" ? "216px" : (
+            currContext === "/info" ? "260px" : "")))))));
         navigation(currContext);
     }, [currContext]);
     

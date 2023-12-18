@@ -4,18 +4,19 @@ const SideBarComponent = styled.div`
     background: linear-gradient(#141729, #101221);
     font-family: 'Nunito';
     position: fixed;
-    height: 100%;
+    justify-content: center;
+    text-align: center;
     width: 350px;
+    height: 100vh;
     border-right: 1px solid #242c30;
+    z-index: 99;
 `;
 
 const SideContainer = styled.div`
     display: flex;
-    margin-top: 100%;
+    height: 70vh;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
 `;
 
 const SideGrid = styled.div`
@@ -37,7 +38,7 @@ const SideRow = styled.div`
     width: 300px;
     margin-left: 50px;
     &:hover {
-        background: linear-gradient(to right, #141729 99%, #de3c4b 1%);
+        background: linear-gradient(to left, #101221 99%, #de3c4b 1%);
         cursor: pointer;
         opacity: 0.8;
         transition: 1s;
@@ -45,7 +46,7 @@ const SideRow = styled.div`
 `
 const SideLink = styled.a`
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   text-decoration: none;
 `;
@@ -61,7 +62,7 @@ const Title = styled.div`
 const PageIndicator = styled.div`
     position: absolute;
     background: #de3c4b;
-    margin-left: 347px;
+    margin-left: 50px;
     margin-top: ${(props) => props.currPosition};
     padding: 19px;
     padding-left: 2px;

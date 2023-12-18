@@ -4,7 +4,6 @@ const FBox = styled.div`
   padding: 1px 10px;
   background: #101221;
   margin-top: 1200px;
-  margin-left: 290px;
   bottom: 0;
   margin: auto;
 `;
@@ -21,7 +20,6 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 60px;
 `;
    
 const Row = styled.div`
@@ -29,12 +27,11 @@ const Row = styled.div`
   grid-template-columns: repeat(auto-fill, 
                          minmax(190px, 1fr));
   grid-gap: 20px;
-  margin-left: 200px;
 `;
    
 const FooterLink = styled.a`
-  color: #b7abe3;
-  margin-bottom: 20px;
+  color: white;
+  margin-bottom: 30px;
   font-size: 18px;
   text-decoration: none;
    
@@ -54,11 +51,11 @@ const Heading = styled.p`
 
 const AuthorHeading = styled.p`
   font-size: 14px;
-  color: #b7abe3;
+  color: white;
   margin-bottom: 20px;
   margin-top: 10px;
-  margin-left: 400px;
   font-weight: bold;
+  margin-left: 20vw;
 `;
 
 export {
