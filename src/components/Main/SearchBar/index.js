@@ -4,26 +4,20 @@ import { generatePath, useNavigate } from 'react-router-dom';
 import { GoSearch } from 'react-icons/go';
 import { ButtonGroup } from '@material-ui/core';
 
-import { ThemeProvider } from '@material-ui/core';
-
 import {
     SearchContainer,
     ButtonContainer,
     SearchGroup,
-    SearchPopup,
     SearchForm,
     SearchBox,
     SearchInput,
     ServerButton,
-    Modal,
-    ModalContainer
 } from './styles';
 
 function SearchBar() {
     const [server, setServer] = useState('1');
     const [type, setType] = useState('1');
     const [search, setSearch] = useState('');
-    const [isModalOpen, setModalOpen] = useState(false);
     
     const navigation = useNavigate();
 
@@ -50,42 +44,24 @@ function SearchBar() {
         }
     };
 
-    const handleClick = () => {
-        setModalOpen(!isModalOpen);
-    };
-
     return (
         <SearchContainer>
-            <SearchGroup>
-                <GoSearch style={{ position: 'absolute', marginLeft: '40px', marginTop: '30px' }} color='white' size='1.5rem' />
-                <SearchPopup>
+            <GoSearch style={{ position: 'absolute', marginLeft: '20px' }} color='#de3c4b' size='1.5rem' />
+            <SearchForm onSubmit={handleSubmit}>
+                <SearchBox>
                     <SearchInput
                         placeholder={ type === '1' ? `Search ${serverArray[parseInt(server) - 1]} Player` : `Search ${serverArray[parseInt(server) - 1]} Clan`}
-                        onClick={handleClick}
+                        value={search} 
+                        onChange={(e) => setSearch(e.target.value)}
                     />
-                    { isModalOpen &&
-                        <ModalContainer>
-                            <SearchForm onSubmit={handleSubmit}>
-                                <SearchBox>
-                                <GoSearch style={{ position: 'absolute', marginLeft: '20px' }} color='white' size='1.5rem' />
-                                    <SearchInput
-                                        placeholder={ type === '1' ? `Search ${serverArray[parseInt(server) - 1]} Player` : `Search ${serverArray[parseInt(server) - 1]} Clan`}
-                                        value={search} 
-                                        onChange={(e) => setSearch(e.target.value)}
-                                        onClick={handleClick}
-                                    />
-                                </SearchBox>
-                            </SearchForm>
-                        </ModalContainer>
-                    }
-                </SearchPopup>
-            </SearchGroup>
+                </SearchBox>
+            </SearchForm>
             <ButtonContainer>
                 <ButtonGroup>
                     {serverOptions.map((svr, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'#de3c4b'}
+                            $backgroundColor={'#87F5FB'}
                             $option={server === svr.value}
                             onClick={() => setServer(svr.value)}
                         >
@@ -97,7 +73,7 @@ function SearchBar() {
                     {typeOptions.map((t, i) => (
                         <ServerButton
                             key={i}
-                            $backgroundColor={'#de3c4b'}
+                            $backgroundColor={'#87F5FB'}
                             $option={type === t.value}
                             onClick={() => setType(t.value)}
                         >
