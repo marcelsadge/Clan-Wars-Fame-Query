@@ -46,7 +46,7 @@ function SearchBar() {
 
     return (
         <SearchContainer>
-            <GoSearch style={{ position: 'absolute', marginLeft: '20px' }} color='#de3c4b' size='1.5rem' />
+            <GoSearch style={{ position: 'absolute', marginLeft: '20px', zIndex: '98' }} color='#de3c4b' size='1.3rem' />
             <SearchForm onSubmit={handleSubmit}>
                 <SearchBox>
                     <SearchInput

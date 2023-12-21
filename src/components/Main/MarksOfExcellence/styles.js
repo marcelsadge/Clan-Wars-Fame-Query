@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TableCell } from '@mui/material';
 
 const MarksContainer = styled.div`
     display: flex;
@@ -7,14 +8,38 @@ const MarksContainer = styled.div`
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     margin-left: 290px;
     flex-wrap: wrap;
-    justify-content: center;
-    height: 100vh;
     width: 100wh;
 `;
 
+const MarksGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+    margin-left: 17vw;
+    z-index: 96;
+`;
+
+const MarksTitle = styled.div`
+    color: white;
+    background: #101221;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 21px;
+    text-align: center;
+`;
+
+const CustomMarksCell = styled(TableCell)`
+
+`;
+
 export {
-    MarksContainer
+    MarksContainer,
+    MarksGroup,
+    MarksTitle,
+    CustomMarksCell
 };

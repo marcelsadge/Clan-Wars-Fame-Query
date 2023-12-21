@@ -10,12 +10,13 @@ const SearchContainer = styled.div`
     justify-content: space-between;
     margin-left: 350px;
     width: 90%;
+    z-index: 97;
 `;
 
 const ButtonContainer = styled.div`
     display: flex;
     position: absolute;
-    margin-right: 10vw;
+    margin-right: 15vw;
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
@@ -35,6 +36,7 @@ const SearchBox = styled.div`
     border-right: 1px solid #242c30;
     font-weight: bold;
     z-index: 97;
+    background: rgb(20, 23, 41, 0.85)
 `;
 
 const SearchInput = styled(InputBase)`
