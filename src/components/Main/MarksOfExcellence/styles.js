@@ -9,9 +9,8 @@ const MarksContainer = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
-    width: 100wh;
 `;
 
 const MarksGroup = styled.div`
@@ -20,7 +19,7 @@ const MarksGroup = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 20vh;
-    margin-left: 17vw;
+    margin-left: 12vw;
     z-index: 96;
 `;
 

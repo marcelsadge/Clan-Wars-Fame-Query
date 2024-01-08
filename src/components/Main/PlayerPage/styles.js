@@ -8,11 +8,11 @@ const Loader = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100wh;
+    width: 100vw - 290px;
     align-items: center;
 `;
 
@@ -24,12 +24,11 @@ const PlayerPage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100wh;
-    flex-direction: column;
+    width: 100vw - 290px;
 `;
 
 const TextFont = styled.div`
@@ -60,7 +59,8 @@ const NameContainer = styled.div`
     justify-content: left;
     font-size: 52px;
     color: white;
-    margin-left: 100px;
+    margin-left: 300px;
+    margin-top: 100px;
 `;
 
 export {

@@ -12,7 +12,6 @@ import {
 } from './styles';
 
 function HomePage() {
-    /*
     return( 
         <FameHomePage>
             <HomeColumn>
@@ -35,26 +34,8 @@ function HomePage() {
                     </BottomBox>
                 </HomeRow>
             </HomeColumn>
-            <HomeColumn>
-                <HomeRow>
-                    <TopRightBox>
-                        Top right box
-                    </TopRightBox>
-                </HomeRow>
-                <HomeRow>
-                    <MiddleRightBox>
-                        Middle Right Box
-                    </MiddleRightBox>
-                </HomeRow>
-            </HomeColumn>
         </FameHomePage>
     );
-    */
-   return (
-    <FameHomePage>
-        a
-    </FameHomePage>
-   );
 }
 
 export default HomePage;

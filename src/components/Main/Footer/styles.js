@@ -3,17 +3,16 @@ import styled from 'styled-components';
 const FBox = styled.div`
   padding: 1px 10px;
   background: #101221;
-  margin-top: 1200px;
   bottom: 0;
   margin: auto;
+  width: 100vw - 290px;
 `;
    
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    margin-right: 40px;
 `;
    
 const Column = styled.div`

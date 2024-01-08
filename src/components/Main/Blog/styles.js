@@ -8,7 +8,7 @@ const BlogHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;

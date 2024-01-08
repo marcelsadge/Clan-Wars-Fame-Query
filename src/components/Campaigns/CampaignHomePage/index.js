@@ -147,7 +147,7 @@ function CampaignHomePage() {
   return (
     <CampaignStatsPage>
       <IntroContainer>
-        Sorry! This feature is only available during campaign season. Check back soon!
+        Sorry! This feature is currently unavailable. Check back later.
       </IntroContainer>
     </CampaignStatsPage>
     /* 

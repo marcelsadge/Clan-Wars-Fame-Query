@@ -8,11 +8,11 @@ const InfoHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100wh;
+    width: 100vw - 290px;
 `;
 
 const InfoRow = styled.div`
@@ -27,12 +27,13 @@ const InfoColumn = styled.div`
 `;
 
 const InfoContainer = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-top: 100px;
     margin-left: 25px;
     border-radius: 20px;
     padding: 20px;
     width: 500px;
+    height: 500px;
     color: #fff;
     font-size: 50px;
 `;

@@ -16,7 +16,7 @@ const CampaignStatsPage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
@@ -24,7 +24,7 @@ const CampaignStatsPage = styled.div`
 `;
 
 const IntroContainer = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-top: 100px;
     margin-right: 50px;
     border-radius: 20px;

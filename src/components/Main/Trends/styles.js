@@ -8,11 +8,27 @@ const TrendsHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
+    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100wh;
+    width: 100vw - 290px;
 `;
 
-export { TrendsHomePage };
+const PlayerNameContainer = styled.div`
+    display: flex;
+    font-size: 52px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+`;
+
+const PlayerStatsContainer = styled.div`
+    display: flex;
+    position: absolute;
+    color: white;
+    justify-content: center;
+    align-items: center;
+`;
+
+export { TrendsHomePage, PlayerNameContainer, PlayerStatsContainer };

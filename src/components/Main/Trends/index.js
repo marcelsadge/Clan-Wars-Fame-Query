@@ -1,10 +1,15 @@
 import React from "react";
-import { TrendsHomePage } from "./styles";
+import { PlayerNameContainer, PlayerStatsContainer, TrendsHomePage } from "./styles";
 
 function Trends() {
     return (
         <TrendsHomePage>
-            Information
+            <PlayerStatsContainer>
+                2800
+            </PlayerStatsContainer>
+            <PlayerNameContainer>
+                Marcel_
+            </PlayerNameContainer>
         </TrendsHomePage>
     );
 }

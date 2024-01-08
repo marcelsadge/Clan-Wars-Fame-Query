@@ -9,10 +9,8 @@ const FameHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 290px;
-    flex-wrap: wrap;
+    margin-left: 350px;
     height: 100vh;
-    width: 100wh;
 `;
 
 const HomeRow = styled.div`
@@ -27,7 +25,7 @@ const HomeColumn = styled.div`
 `;
 
 const IntroContainer = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-top: 100px;
     margin-left: 25px;
     border-radius: 20px;
@@ -38,7 +36,7 @@ const IntroContainer = styled.div`
 `;
 
 const TopRightBox = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-top: 100px;
     margin-left: 25px;
     border-radius: 20px;
@@ -50,7 +48,7 @@ const TopRightBox = styled.div`
 `;
 
 const MiddleBox = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-left: 25px;
     border-radius: 20px;
     padding: 20px;
@@ -61,7 +59,7 @@ const MiddleBox = styled.div`
 `;
 
 const MiddleRightBox = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-left: 25px;
     border-radius: 20px;
     padding: 20px;
@@ -72,7 +70,7 @@ const MiddleRightBox = styled.div`
 `;
 
 const BottomBox = styled.div`
-    background-color: #181c1c;
+    background-color: #101221;
     margin-left: 25px;
     border-radius: 20px;
     padding: 20px;
@@ -80,6 +78,18 @@ const BottomBox = styled.div`
     height: 200px;
     color: #fff;
     font-size: 25px;
+`;
+
+const BoxContainer = styled.div`
+    background-color: #101221;
+    margin-top: 100px;
+    margin-left: 25px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    color: #fff;
+    font-size: 50px;
 `;
 
 export {
@@ -90,5 +100,6 @@ export {
     TopRightBox,
     MiddleBox,
     MiddleRightBox,
-    BottomBox
+    BottomBox,
+    BoxContainer
 };
