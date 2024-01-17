@@ -37,7 +37,7 @@ function Core() {
               <Route path='/stats' element={<Trends />} />
               <Route path='/clanmap' element={<ClanMap />} />
               <Route path='/clanmapsearch' element={<ClanMapSearch />} />
-              <Route path='/player' element={<PlayerStatsPage />} />
+              <Route path='/player/:name' element={<PlayerStatsPage />} />
               <Route path='/blog' element={<Blog />} />
               <Route path='/campaignstats' element={<CampaignHomePage />} />
               <Route path='/Info' element={<Info />} />

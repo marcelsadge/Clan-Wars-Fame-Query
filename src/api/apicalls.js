@@ -79,8 +79,7 @@ export async function getPlayerStatistics(player_id) {
         .then((result) => {
             return result.data;
         });
-    const plyrStats = calculateOverallWN8(player_id, valuesMap, playerStats);
-    return plyrStats;
+    return calculateOverallWN8(player_id, valuesMap, playerStats);;
 }
 
 export async function calculateOverallWN8(player_id, valuesMap, playerStats) {
@@ -379,3 +378,44 @@ export async function getAvailableClans(clan_ids) {
     }
     return count;
 };
+
+export async function getPlayerTankStats(player_id) {
+    return await fetch(`https://api.worldoftanks.com/wot/account/tanks/?application_id=${api_key}&account_id=${player_id}`, {
+        method: 'GET'})
+    .then((response) => response.json())
+    .then((result) => {
+        return result['data'][player_id.toString()];
+    });
+}
+
+export async function calculateOverallWinRate(player_id) {
+    const tankStats = await getPlayerTankStats(player_id);
+    let wins = 0;
+    let battles = 0;
+    for (const item in tankStats) {
+        wins += tankStats[item]["statistics"]["wins"];
+        battles += tankStats[item]["statistics"]["battles"];
+    }
+    return ((wins / battles) * 100).toFixed(2) + '%';
+}
+
+export async function getClanFromPlayer(player_id) {
+    return await fetch(`https://api.worldoftanks.com/wot/account/info/?application_id=${api_key}&account_id=${player_id}`, {
+        method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((result) => {
+        console.log(result['data'][player_id.toString()]['clan_id']);
+        return result['data'][player_id.toString()]['clan_id'];
+    });
+}
+
+export async function getClanEmblem(clan_id) {
+    return await fetch(`https://api.worldoftanks.com/wot/clans/info/?application_id=${api_key}&clan_id=${clan_id}`, {
+        method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((result) => {
+        return result['data'][clan_id.toString()]['emblems']['x195']['portal'];
+    });
+}

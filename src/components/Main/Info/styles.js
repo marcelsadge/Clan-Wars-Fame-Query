@@ -27,6 +27,7 @@ const InfoColumn = styled.div`
 `;
 
 const InfoContainer = styled.div`
+    display: flex;
     background-color: #101221;
     margin-top: 100px;
     margin-left: 25px;
@@ -36,6 +37,8 @@ const InfoContainer = styled.div`
     height: 500px;
     color: #fff;
     font-size: 50px;
+    justify-content: center;
+    align-text: center;
 `;
 
 export {

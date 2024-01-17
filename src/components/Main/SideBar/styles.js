@@ -35,7 +35,7 @@ const SideRow = styled.div`
     display: flex;
     padding: 9px;
     column-gap: 10px;
-    width: 300px;
+    width: 297px;
     margin-left: 50px;
     &:hover {
         background: linear-gradient(to left, #101221 99%, #de3c4b 1%);
