@@ -4,12 +4,6 @@ import { PlayerNameContainer, PlayerStatsContainer, TrendsHomePage } from "./sty
 function Trends() {
     return (
         <TrendsHomePage>
-            <PlayerStatsContainer>
-                2800
-            </PlayerStatsContainer>
-            <PlayerNameContainer>
-                Marcel_
-            </PlayerNameContainer>
         </TrendsHomePage>
     );
 }

@@ -4,15 +4,13 @@ const FBox = styled.div`
   padding: 1px 10px;
   background: #101221;
   bottom: 0;
-  margin: auto;
-  width: 100vw - 290px;
+  width: 100%;
 `;
    
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 40px;
 `;
    
 const Column = styled.div`
@@ -54,7 +52,6 @@ const AuthorHeading = styled.p`
   margin-bottom: 20px;
   margin-top: 10px;
   font-weight: bold;
-  margin-left: 20vw;
 `;
 
 export {

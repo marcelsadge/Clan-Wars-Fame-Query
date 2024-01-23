@@ -54,6 +54,7 @@ function ClanMap() {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         isMounted.current = true;
         getData();
         return () => {

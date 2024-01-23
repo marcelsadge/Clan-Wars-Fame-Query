@@ -16,11 +16,10 @@ const CampaignStatsPage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 350px;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100wh;
+    width: 60wh;
 `;
 
 const IntroContainer = styled.div`

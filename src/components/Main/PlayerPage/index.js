@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { ClipLoader } from 'react-spinners';
@@ -8,13 +8,12 @@ import {
     Loader,
     PlayerPage,
     TextFont,
-    TopStats,
     StatsContainer,
     RecentStats,
     NameContainer,
     GeneralContainer,
-    BadgeImage,
-    NameGroup
+    NameGroup,
+    HoverContainer
 } from './styles';
 
 function PlayerStatsPage() {
@@ -70,7 +69,7 @@ function PlayerStatsPage() {
                 <PlayerPage>
                         <GeneralContainer>
                             <NameGroup>
-                                <BadgeImage />
+                                <HoverContainer />
                                 <NameContainer>
                                     {name}
                                 </NameContainer>
@@ -93,13 +92,17 @@ function PlayerStatsPage() {
                                     <TextFont $font={'18px'}>
                                         Overall WN8: <br />
                                     </TextFont>
-                                    {Math.ceil(wn8)}
+                                    <TextFont $font={'16px'}>
+                                        {Math.ceil(wn8)}
+                                    </TextFont>
                                 </StatsContainer>
                                 <StatsContainer>
                                     <TextFont $font={'18px'}>
                                         Win Rate: <br />
                                     </TextFont>
-                                    {wr}
+                                    <TextFont $font={'16px'}>
+                                        {wr}
+                                    </TextFont>
                                 </StatsContainer>
                             </RecentStats>
                         </GeneralContainer>

@@ -419,3 +419,26 @@ export async function getClanEmblem(clan_id) {
         return result['data'][clan_id.toString()]['emblems']['x195']['portal'];
     });
 }
+
+export async function exportTankData(tank_id) {
+    let info = {};
+
+    const tankInfo = await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${api_key}&tank_id=${tank_id}`, {
+        method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((result) =>{
+        return result['data'][tank_id];
+    });
+
+    info['tank_id'] = tank_id;
+    info['name'] = tankInfo['name'];
+    info['tier'] = tankInfo['tier'];
+    info['is_premium'] = tankInfo['is_premium'];
+    info['type'] = tankInfo['type'];
+    info['nation'] = tankInfo['nation'];
+    info['image'] = tankInfo['contour_icon'];
+
+    return info;
+}
+

@@ -13,6 +13,7 @@ import Trends from './components/Main/Trends';
 import HomePage from './components/Main/HomePage';
 import PlayerStatsPage from './components/Main/PlayerPage';
 import Footer from './components/Main/Footer';
+import DataBar from './components/DataBar';
 import SideBar from './components/Main/SideBar';
 import SearchBar from './components/Main/SearchBar';
 import MarksOfExcellence from './components/Main/MarksOfExcellence';
@@ -30,6 +31,7 @@ function Core() {
       <PositionContext.Provider value={{currPosition, setPosition}}>
       <Router>
           <SideBar />
+          <DataBar />
           <SearchBar />
           <Routes>
               <Route path='/' element={<HomePage />} />

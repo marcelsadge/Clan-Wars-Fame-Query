@@ -8,11 +8,11 @@ const TrendsHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 350px;
+    margin-left: 20vw;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100vw - 290px;
+    width: 60vw;
 `;
 
 const PlayerNameContainer = styled.div`

@@ -21,6 +21,7 @@ import {
 
 import marks from '../../../marks.json';
 import { makeStyles } from '@material-ui/core';
+import { exportTankData } from '../../../api/apicalls';
 
 const useStyles = makeStyles({
     table: {
@@ -28,15 +29,35 @@ const useStyles = makeStyles({
     }
 });
 
+const MarksHeaderCellStyle = {
+    color: 'white', 
+    fontSize: '18px', 
+    fontFamily: 'Nunito'
+};
+
+const MarksCellStyle = {
+    color: 'white', 
+    fontSize: '14px', 
+    fontFamily: 'Nunito'
+};
+
 function MarksOfExcellence() {
     const classes = useStyles();
 
-    const data = marks['data'].sort((a, b) => {
+    const cleanMarks = async () => {
+        for (const val in marks['data']) {
+            const tankJson = await exportTankData(marks['data'][val]['id']);
+            console.log(marks['data'][val]['tank']);
+            marks['data'][val]['tank'] = tankJson['name'];
+        }
+    };
+
+    const defaultSort = marks['data'].sort((a, b) => {
         return(
             a['marks']['95'] > b['marks']['95'] ? 1 : 0
     )});
 
-    const [rowData, setRowData] = useState(data);
+    const [rowData, setRowData] = useState(defaultSort);
     const [order, setOrder] = useState('desc');
     const [page, setPage] = useState(0);
     const [tanksPerPage, setTanksPerPage] = useState(10);
@@ -49,27 +70,28 @@ function MarksOfExcellence() {
         setTanksPerPage(parseInt(event.target.value, 10));
     };
 
-    const sortTable = (arr, orderBy) => {
+    const sortMarks = (arr, orderBy, value) => {
         switch(orderBy) {
             case "desc":
                 return arr.sort((a, b) =>
-                        a['marks']['95'] > b['marks']['95'] ? 1 : a['marks']['95'] < b['marks']['95'] ? -1 : 0
+                        a['marks'][value] > b['marks'][value] ? 1 : a['marks'][value] < b['marks'][value] ? -1 : 0
                     );
             case "asc":
                 default:
                     return arr.sort((a, b) =>
-                        a['marks']['95'] < b['marks']['95'] ? 1 : a['marks']['95'] > b['marks']['95'] ? -1 : 0
+                        a['marks'][value] < b['marks'][value] ? 1 : a['marks'][value] > b['marks'][value] ? -1 : 0
                     );
         }
     };
 
-    const handleSortTable = () => {
-        setRowData(sortTable(data, order));
+    const handleSortTable = (value) => {
+        setRowData(sortMarks(defaultSort, order, value.toString()));
         setOrder(order === "asc" ? "desc" : "asc");
     };
         
     useEffect(() => {
         window.scrollTo(0, 0);
+        //cleanMarks();
     }, []);
 
     return( 
@@ -82,29 +104,42 @@ function MarksOfExcellence() {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead style={{ background: '#101221' }}>
                         <TableRow>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}}>Tank ID</CustomMarksCell>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}}>50</CustomMarksCell>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}}>60</CustomMarksCell>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}}>85</CustomMarksCell>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}} onClick={handleSortTable}>
-                                95
-                                <TableSortLabel style={{ backgroundColor: 'white'}} active={true} direction={order}>
-                                </TableSortLabel>
+                            <CustomMarksCell sx={MarksHeaderCellStyle}>
+                                Tank
                             </CustomMarksCell>
-                            <CustomMarksCell sx={{ color: 'white', fontSize: '18px', fontFamily: 'Nunito'}}>100</CustomMarksCell>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(65)}>
+                                65
+                            </CustomMarksCell>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(85)}>
+                                85
+                            </CustomMarksCell>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(95)}>
+                                95
+                                <TableSortLabel style={{ backgroundColor: 'white'}} active={true} direction={order} />
+                            </CustomMarksCell>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(100)}>
+                                100
+                            </CustomMarksCell>
                         </TableRow>
                     </TableHead>
                     <TableBody style={{background: '#101221'}}>
-                        {data.slice(page * tanksPerPage, page * tanksPerPage + tanksPerPage).map((row) => (
+                        {rowData.slice(page * tanksPerPage, page * tanksPerPage + tanksPerPage).map((row) => (
                             <TableRow key={row['id']}>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>
-                                    {row['id']}
+                                <CustomMarksCell sx={MarksCellStyle}>
+                                    {row['tank']}
                                 </CustomMarksCell>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>{row['marks']['50']}</CustomMarksCell>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>{row['marks']['65']}</CustomMarksCell>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>{row['marks']['85']}</CustomMarksCell>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>{row['marks']['95']}</CustomMarksCell>
-                                <CustomMarksCell sx={{ color: 'white', fontSize: '14px', fontFamily: 'Nunito'}}>{row['marks']['100']}</CustomMarksCell>
+                                <CustomMarksCell sx={MarksCellStyle}>
+                                    {row['marks']['65']}
+                                </CustomMarksCell>
+                                <CustomMarksCell sx={MarksCellStyle}>
+                                    {row['marks']['85']}
+                                </CustomMarksCell>
+                                <CustomMarksCell sx={MarksCellStyle}>
+                                    {row['marks']['95']}
+                                </CustomMarksCell>
+                                <CustomMarksCell sx={MarksCellStyle}>
+                                    {row['marks']['100']}
+                                </CustomMarksCell>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -112,7 +147,7 @@ function MarksOfExcellence() {
             <TablePagination 
                 rowsPerPageOptions={[10, 25, 50, 100]}
                 component="div"
-                count={data.length}
+                count={rowData.length}
                 rowsPerPage={tanksPerPage}
                 page={page}
                 onPageChange={handlePageChange}

@@ -9,7 +9,8 @@ const FameHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 350px;
+    margin-left: 20vw;
+    width: 60vw;
     height: 100vh;
 `;
 
@@ -27,10 +28,10 @@ const HomeColumn = styled.div`
 const IntroContainer = styled.div`
     background-color: #101221;
     margin-top: 100px;
-    margin-left: 25px;
+    margin-left: 1.5vw;
     border-radius: 20px;
     padding: 20px;
-    width: 100%;
+    width: 56vw;
     color: #fff;
     font-size: 50px;
 `;
@@ -49,10 +50,10 @@ const TopRightBox = styled.div`
 
 const MiddleBox = styled.div`
     background-color: #101221;
-    margin-left: 25px;
+    margin-left: 1.5vw;
     border-radius: 20px;
     padding: 20px;
-    width: 450px;
+    width: 27.2vw;
     height: 300px;
     color: #fff;
     font-size: 25px;
@@ -60,18 +61,19 @@ const MiddleBox = styled.div`
 
 const MiddleRightBox = styled.div`
     background-color: #101221;
-    margin-left: 25px;
+    margin-left: 2vw;
     border-radius: 20px;
     padding: 20px;
-    width: 100%;
+    width: 20vw;
     height: 525px;
     color: #fff;
     font-size: 25px;
+    z-index: 2;
 `;
 
 const BottomBox = styled.div`
     background-color: #101221;
-    margin-left: 25px;
+    margin-left: 1.5vw;
     border-radius: 20px;
     padding: 20px;
     width: 100%;

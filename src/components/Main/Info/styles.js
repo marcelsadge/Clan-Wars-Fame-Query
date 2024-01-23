@@ -8,11 +8,11 @@ const InfoHomePage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 350px;
+    margin-left: 20vw;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 100vw - 290px;
+    width: 60vw;
 `;
 
 const InfoRow = styled.div`
@@ -30,7 +30,6 @@ const InfoContainer = styled.div`
     display: flex;
     background-color: #101221;
     margin-top: 100px;
-    margin-left: 25px;
     border-radius: 20px;
     padding: 20px;
     width: 500px;

@@ -8,15 +8,15 @@ const SearchContainer = styled.div`
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 350px;
-    width: 90%;
+    margin-left: 20vw;
+    width: 72%;
     z-index: 97;
 `;
 
 const ButtonContainer = styled.div`
     display: flex;
     position: absolute;
-    margin-right: 15vw;
+    margin-right: 14vw;
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
@@ -30,7 +30,7 @@ const SearchBox = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 85%;
     height: 70px;
     border-bottom: 1px solid #242c30;
     border-right: 1px solid #242c30;

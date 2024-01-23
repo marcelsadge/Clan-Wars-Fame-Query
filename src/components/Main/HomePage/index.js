@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
     FameHomePage,
@@ -12,6 +12,11 @@ import {
 } from './styles';
 
 function HomePage() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return( 
         <FameHomePage>
             <HomeColumn>

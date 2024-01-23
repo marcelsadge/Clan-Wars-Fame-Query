@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -18,6 +18,10 @@ function ClanMapSearch() {
         e.preventDefault();
         navigation('/clanmap', { state: { clanName: search } });
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <SearchContainer>

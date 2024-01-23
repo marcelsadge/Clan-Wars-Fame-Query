@@ -5,11 +5,10 @@ const MarksContainer = styled.div`
     display: flex;
     font-family: 'Nunito';
     background: linear-gradient(#141729, #212840, #101221);
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 100vh;
     background-size: 100%;
-    margin-left: 350px;
+    margin-left: 20vw;
+    margin: auto;
     flex-wrap: wrap;
 `;
 
@@ -18,8 +17,8 @@ const MarksGroup = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20vh;
-    margin-left: 12vw;
+    margin-top: 5vh;
+    margin-left: 23.5vw;
     z-index: 96;
 `;
 

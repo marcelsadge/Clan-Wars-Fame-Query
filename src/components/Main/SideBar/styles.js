@@ -6,7 +6,7 @@ const SideBarComponent = styled.div`
     position: fixed;
     justify-content: center;
     text-align: center;
-    width: 350px;
+    width: 20vw;
     height: 100vh;
     border-right: 1px solid #242c30;
     z-index: 99;
@@ -31,38 +31,45 @@ const SideTable = styled.div`
     flex-direction: column;
 `;
 
+const SideTableMini = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+`;
+
 const SideRow = styled.div`
     display: flex;
     padding: 9px;
     column-gap: 10px;
-    width: 297px;
-    margin-left: 50px;
+    width: 15vw;
+    margin-left: 3vw;
+    transition: 0.3s;
     &:hover {
-        background: linear-gradient(to left, #101221 99%, #de3c4b 1%);
         cursor: pointer;
-        opacity: 0.8;
-        transition: 1s;
+        transform: scaleX(1.1) scaleY(1.1);
+        transition: 0.3s;
     }
 `
+
 const SideLink = styled.a`
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
 `;
 
 const Title = styled.div`
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     padding: 21px;
     text-align: center;
 `;
 
 const PageIndicator = styled.div`
-    position: absolute;
+    position: fixed;
     background: #de3c4b;
-    margin-left: 50px;
+    margin-left: 2vw;
     margin-top: ${(props) => props.currPosition};
     padding: 19px;
     padding-left: 2px;
@@ -74,6 +81,7 @@ export {
     SideContainer, 
     SideGrid,
     SideTable,
+    SideTableMini,
     SideRow,
     SideLink,
     Title,
