@@ -3,16 +3,17 @@ import InputBase from '@mui/material/InputBase';
 
 const SearchContainer = styled.div`
     display: flex;
-    font-family: 'Nunito';
-    background: linear-gradient(#141729, #212840, #101221);
+    width: 84vw;
+    margin-left: 15vw;
+    font-family: 'Rubik', sans-serif;
+    background: #252735;
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 60wh;
 `;
 
 const Box = styled.div`

@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { FaBars, FaMap, FaChartLine, FaBloggerB, FaMailBulk } from 'react-icons/fa';
+import { FaMap, FaChartLine, FaBloggerB, FaMailBulk } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
 import { GiStarsStack, GiTank } from 'react-icons/gi'
-import { TbBrandCampaignmonitor } from 'react-icons/tb';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -16,35 +14,40 @@ import {
     SideGrid, 
     SideTable, 
     SideRow, 
+    TitleRow,
     SideLink, 
     Title, 
     PageIndicator, 
-    SideTableMini} from './styles';
+    SideTableMini,
+    SubTitleRow,
+    MainGroup
+} from './styles';
 
-function SideBar({ props }) {
-    const [isDesktop, setDesktop] = useState(window.innerWidth > 600);
+function SideBar() {
+    const [isDesktop, setDesktop] = useState(window.innerWidth > 1279);
     const {currContext, setContext} = useContext(PageContext);
     const {currPosition, setPosition} = useContext(PositionContext);
 
     const navigation = useNavigate();
 
     const handleWindowSize = () => {
-        setDesktop(window.innerWidth > 600);
+        setDesktop(window.innerWidth > 1279);
     };
 
     const handleOnClick = (navi) => {
         setContext(navi);
+        navigation(currContext);
     };
 
     useEffect(() => {
         setPosition(
-            currContext === "/" ? "3px" : ( 
-            currContext === "/marks" ? "48px" : ( 
-            currContext === "/stats" ? "92px" : (
-            currContext === "/clanmapsearch" ? "138px" : (
-            currContext === "/campaignstats" ? "182px" : (
-            currContext === "/blog" ? "227px" : (
-            currContext === "/info" ? "272px" : "")))))));
+            currContext === "/" ? "1px" : (
+            currContext === "/marks" ? "42px" : ( 
+            currContext === "/stats" ? "125px" : ( 
+            currContext === "/clanmapsearch" ? "83px" : (
+            currContext === "/blog" ? "165px" : (
+            currContext === "/info" ? "205px" : (
+            currContext === "/campaignstats" ? "313px" : "")))))));
         navigation(currContext);
     }, [currContext]);
     
@@ -57,115 +60,144 @@ function SideBar({ props }) {
         
         <SideBarComponent>
             {isDesktop ? (
-            <Title>
-                In Progress Project
-            </Title>
+            <TitleRow onClick={() => handleOnClick('/')}>
+                <Title>
+                    WoT Fame
+                </Title>
+            </TitleRow>
             ) : (
                 <Title>
-                    I.P.P.
+                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
                 </Title>
             )}
-            <SideContainer>
-                <SideGrid>
-                    {isDesktop ? (
-                        <SideTable>
+            <MainGroup>
+                {isDesktop ? (
+                <SubTitleRow>
+                    Main
+                </SubTitleRow>
+                ) : <></> }
+                <SideContainer>
+                    <SideGrid>
+                        {isDesktop ? (
+                            <>
+                            <SideTable>
+                                {isDesktop ? (
+                                    <PageIndicator currPosition={currPosition} />
+                                ) : (<div></div>)}
+                                <SideRow onClick={() => handleOnClick('/')}>
+                                    <FiHome size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Home
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/marks')}>
+                                    <GiStarsStack size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Marks of Excellence
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
+                                    <FaMap size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Clan Map
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/stats')}>
+                                    <FaChartLine size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Trends
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/blog')}>
+                                    <FaBloggerB size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Blog
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/info')}>
+                                    <FaMailBulk size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Info
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                            </SideTable>
+                            <SubTitleRow>
+                                Campaign
+                            </SubTitleRow>
+                            <SideTable>
+                                <SideRow onClick={() => handleOnClick('/campaignstats')} style={{"marginTop" : "30px"}}>
+                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Stats
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/campaignstats')}>
+                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Coming Soon...
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                            </SideTable>
+                            </>
+                        ) : (
+                            <SideTableMini>
                             {isDesktop ? (
                                 <PageIndicator currPosition={currPosition} />
-                            ) : (<div></div>)}
-                            <SideRow onClick={() => handleOnClick('/')}>
-                                <FiHome size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Home
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/marks')}>
-                                <GiStarsStack size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Marks of Excellence
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/stats')}>
-                                <FaChartLine size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Trends
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
-                                <FaMap size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Clan Map
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/campaignstats')}>
-                                <GiTank size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Campaign Stats
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/blog')}>
-                                <FaBloggerB size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Blog
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/info')}>
-                                <FaMailBulk size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Info
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                        </SideTable>
-                    ) : (
-                        <SideTableMini>
-                        {isDesktop ? (
-                            <PageIndicator currPosition={currPosition} />
-                            ) : (<div></div>)}
-                            <SideRow onClick={() => handleOnClick('/')}>
-                                <FiHome size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Home
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/marks')}>
-                                <GiStarsStack size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Marks of Excellence
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/stats')}>
-                                <FaChartLine size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Trends
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
-                                <FaMap size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Clan Map
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/campaignstats')}>
-                                <GiTank size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Campaign Stats
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/blog')}>
-                                <FaBloggerB size={'23px'} color={'white'} />
-                                {isDesktop ? (<SideLink>
-                                    Blog
-                                </SideLink>) : (<div></div>)}
-                            </SideRow>
-                            <SideRow onClick={() => handleOnClick('/info')}>
-                            <FaMailBulk size={'23px'} color={'white'} />
-                            {isDesktop ? (<SideLink>
-                                Info
-                            </SideLink>) : (<div></div>)}
-                        </SideRow>
-                    </SideTableMini>
-                    )}
-                </SideGrid>
-            </SideContainer>
+                                ) : (<div></div>)}
+                                <SideRow onClick={() => handleOnClick('/')}>
+                                    <FiHome size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Home
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/marks')}>
+                                    <GiStarsStack size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Marks of Excellence
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/clanmapsearch')}>
+                                    <FaMap size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Clan Map
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/stats')}>
+                                    <FaChartLine size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Trends
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/blog')}>
+                                    <FaBloggerB size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Blog
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/info')}>
+                                    <FaMailBulk size={'23px'} color={'white'} />
+                                    {isDesktop ? (<SideLink>
+                                        Info
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/campaignstats')} style={{"marginTop" : "30px"}}>
+                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Stats
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                                <SideRow onClick={() => handleOnClick('/campaignstats')}>
+                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
+                                    {isDesktop ? (<SideLink>
+                                        Coming Soon...
+                                    </SideLink>) : (<div></div>)}
+                                </SideRow>
+                        </SideTableMini>
+                        )}
+                        
+                    </SideGrid>
+                </SideContainer>
+            </MainGroup>
         </SideBarComponent>
     );
 }

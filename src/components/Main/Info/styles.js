@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 const InfoHomePage = styled.div`
     display: flex;
+    width: 84vw;
+    margin-left: 15vw;
     font-family: 'Nunito';
-    background: linear-gradient(#141729, #212840, #101221);
+    background: #252735;
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: 20vw;
+    background-size: 100%;
     flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 60vw;
 `;
 
 const InfoRow = styled.div`

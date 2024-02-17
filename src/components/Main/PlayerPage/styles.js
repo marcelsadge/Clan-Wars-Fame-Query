@@ -1,34 +1,38 @@
 import styled from 'styled-components';
 import rank from '../../../img/master3.png';
 
+const EmptyContainer = styled.div`
+    display: flex;
+    margin: 0;
+    top: 0;
+    left: 0;
+`;
+
 const Loader = styled.div`
     display: flex;
-    font-family: 'Nunito';
-    background: linear-gradient(#141729, #212840, #101221);
-    height: auto;
+    width: 84vw;
+    margin-left: 15vw;
+    font-family: 'Rubik', sans-serif;
+    background: #252735;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-left: 20vw;
-    flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
-    width: 60vw;
     align-items: center;
 `;
 
 const PlayerPage = styled.div`
     display: flex;
-    font-family: 'Nunito';
-    background: linear-gradient(#141729, #212840, #101221);
-    height: auto;
+    width: 84vw;
+    margin-left: 14.53vw;
+    font-family: 'Rubik', sans-serif;
+    background: #252735;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-left: 20vw;
-    flex-wrap: wrap;
     justify-content: center;
-    width: 60vw;
+    align-items: center;
 `;
 
 const TextFont = styled.div`
@@ -55,65 +59,98 @@ const StatsContainer = styled.div`
     background: #401070;
 `;
 
-const HoverContainer = styled.div`
+const HomeRow = styled.div`
     display: flex;
-    width: 120px;
-    height: 110px;
-    background: #212840;
-    background-image: url(${rank});
-    border-radius: 25%;
-`;
-
-
-const RecentStats = styled.div`
-    display: flex;
-    margin-top: 50px;
     flex-direction: row;
     justify-content: space-between;
-    width: 45vw;
-    height: 10vh;
 `;
 
-const NameGroup = styled.div`
+const HomeColumn = styled.div`
     display: flex;
-    margin-top: 50px;
-    flex-direction: row;
-`;
-
-const NameContainer = styled.div`
-    display: flex;
-    font-size: 60px;
-    margin-top: 30px;
-    color: white;
-    align-text: center;
-`;
-
-const GeneralContainer = styled.div`
-    display: flex;
-    background-color: #101221;
-    margin-top: 5vw;
-    margin-right: 0.5vw;
-    margin-bottom: 50px;
-    border-radius: 20px;
-    padding: 20px;
-    width: 56vw;
-    height: 100vh;
-    color: #fff;
-    font-size: 50px;
-    align-items: center;
     flex-direction: column;
-    border: 1px solid #242c30;
+    row-gap: 25px;
 `;
+
+const DashboardContainer = styled.div`
+    margin-top: 100px;
+    margin-left: 40px;
+    border-radius: 25px;
+    height: 50px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+`;
+
+const SettingsContainer = styled.div`
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    right: 0;
+    margin-right: 40px;
+    width: 100px;
+    height: 40px;
+    margin-top: 100px;
+    background-color: #626ed4;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #4a56c7;
+        transition: 0.3s;
+    }
+`;
+
+const TopBox = styled.div`
+    background-color: #626ed4;
+    margin-left: 1.5vw;
+    border-radius: 15px;
+    width: 370px;
+    height: 150px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #242c30;
+`;
+
+const MiddleBox = styled.div`
+    background-color: #2a3142;
+    margin-left: 1.5vw;
+    border-radius: 15px;
+    width: 1165px;
+    height: 450px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #242c30;
+`;
+
+const SummaryBox = styled.div`
+    background-color: #2a3142;
+    border-radius: 15px;
+    width: 370px;
+    height: 450px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #242c30;
+`;
+
+export {
+    HomeRow,
+    HomeColumn,
+    TopBox,
+    MiddleBox,
+    SummaryBox,
+    DashboardContainer,
+    SettingsContainer,
+    EmptyContainer
+};
 
 export {
     Loader,
     PlayerPage,
     TextFont,
     TopStats,
-    StatsContainer,
-    RecentStats,
-    NameContainer,
-    GeneralContainer,
-    NameGroup,
-    HoverContainer
+    StatsContainer
 };

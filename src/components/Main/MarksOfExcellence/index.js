@@ -97,12 +97,12 @@ function MarksOfExcellence() {
     return( 
         <MarksContainer>
             <MarksGroup>
-            <Paper style={{padding: '20px', background: '#101221' }}>
+            <Paper style={{padding: '20px', background: '#626ed4' }}>
                 <MarksTitle>
                     Marks of Excellence
                 </MarksTitle>
                 <Table className={classes.table} aria-label="simple table">
-                    <TableHead style={{ background: '#101221' }}>
+                    <TableHead style={{ background: '#626ed4' }}>
                         <TableRow>
                             <CustomMarksCell sx={MarksHeaderCellStyle}>
                                 Tank
@@ -122,7 +122,7 @@ function MarksOfExcellence() {
                             </CustomMarksCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody style={{background: '#101221'}}>
+                    <TableBody style={{background: '#626ed4'}}>
                         {rowData.slice(page * tanksPerPage, page * tanksPerPage + tanksPerPage).map((row) => (
                             <TableRow key={row['id']}>
                                 <CustomMarksCell sx={MarksCellStyle}>
@@ -152,7 +152,7 @@ function MarksOfExcellence() {
                 page={page}
                 onPageChange={handlePageChange}
                 onRowsPerPageChange={handleTanksPerPage}
-                style={{ background: "#101221", width: '50vw', color: 'white', fontFamily: 'Nunito' }}
+                style={{ background: "#626ed4", width: '50vw', color: 'white', fontFamily: 'Rubik, sans-serif' }}
             />
             </Paper>
             </MarksGroup>

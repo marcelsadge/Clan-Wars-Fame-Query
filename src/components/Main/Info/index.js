@@ -7,9 +7,6 @@ function Info() {
         <InfoHomePage>
             <InfoColumn>
                 <InfoRow>
-                    <InfoContainer>
-                        Info
-                    </InfoContainer>
                 </InfoRow>
             </InfoColumn>
         </InfoHomePage>

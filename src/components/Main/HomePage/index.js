@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
+import { GoGear } from "react-icons/go";
 
 import {
     FameHomePage,
     HomeRow,
     HomeColumn,
-    IntroContainer,
-    TopRightBox,
+    TopBox,
     MiddleBox,
-    MiddleRightBox,
-    BottomBox
+    DashboardContainer,
+    SettingsContainer,
+    SummaryBox
 } from './styles';
 
 function HomePage() {
+
+    const handleSettingsPopup = () => {
+        
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -21,22 +26,43 @@ function HomePage() {
         <FameHomePage>
             <HomeColumn>
                 <HomeRow>
-                    <IntroContainer>
-                        Intro Box
-                    </IntroContainer>
+                    <DashboardContainer>
+                        Dashboard
+                    </DashboardContainer>
+                    <SettingsContainer>
+                        <GoGear />
+                        Settings
+                    </SettingsContainer>
+                </HomeRow>
+                <HomeRow>
+                    <TopBox>
+
+                    </TopBox>
+                    <TopBox>
+
+                    </TopBox>
+                    <TopBox>
+
+                    </TopBox>
+                    <TopBox>
+                        
+                    </TopBox>
                 </HomeRow>
                 <HomeRow>
                     <MiddleBox>
-                        Middle Left Box
+
                     </MiddleBox>
-                    <MiddleBox>
-                        Middle Right Box
-                    </MiddleBox>
+                    <SummaryBox>
+
+                    </SummaryBox>
                 </HomeRow>
                 <HomeRow>
-                    <BottomBox>
-                        Bottom Box
-                    </BottomBox>
+                    <MiddleBox>
+
+                    </MiddleBox>
+                    <SummaryBox>
+                        
+                    </SummaryBox>
                 </HomeRow>
             </HomeColumn>
         </FameHomePage>

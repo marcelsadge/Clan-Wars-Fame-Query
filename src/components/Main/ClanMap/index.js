@@ -6,6 +6,7 @@ import { ClipLoader } from 'react-spinners';
 
 import { getClanMapData, getClanId } from '../../../api/apicalls';
 import { Loader } from './styles';
+import { SearchContainer } from '../SearchBar/styles';
 
 function ClanMap() {
     const isMounted = useRef(false);
@@ -67,7 +68,7 @@ function ClanMap() {
     }, []);
     
     return (
-        <div style={{ position: 'fixed' }}>
+            <>
             {loading ? 
                 <Loader>
                     <ClipLoader 
@@ -77,21 +78,22 @@ function ClanMap() {
                     /> 
                 </Loader>
                 : 
-            <ForceGraph2D
-                width={window.innerWidth}
-                height={window.innerHeight}
-                graphData={generateClanGraph()}
-                nodeThreeObject={(node) => {
-                    const sprite = new SpriteText(node.name, 10);
-                    sprite.color = node.color;
-                    sprite.padding = [8, 4];
-                    sprite.textHeight = 5;
-                    sprite.borderRadius = 10;
-                    return sprite;
-                }}
-            />
+                <ForceGraph2D
+                    backgroundColor={"#252735"}
+                    width={window.innerWidth * 0.99}
+                    height={window.innerHeight}
+                    graphData={generateClanGraph()}
+                    nodeThreeObject={(node) => {
+                        const sprite = new SpriteText(node.name, 10);
+                        sprite.color = node.color;
+                        sprite.padding = [8, 4];
+                        sprite.textHeight = 5;
+                        sprite.borderRadius = 10;
+                        return sprite;
+                    }}
+                />
             }
-        </div>
+            </>
     );
 }
 

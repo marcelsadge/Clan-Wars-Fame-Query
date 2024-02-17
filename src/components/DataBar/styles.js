@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 const DataBarComponent = styled.div`
     display: flex;
-    background: linear-gradient(#141729, #101221);
+    background: #2a3142;
     font-family: 'Nunito';
     position: fixed;
-    justify-content: flex-end;
+    justify-content: center;
     text-align: center;
-    width: 20vw;
+    width: 15vw;
     height: 100vh;
     border-left: 1px solid #242c30;
     z-index: 99;
@@ -16,7 +16,7 @@ const DataBarComponent = styled.div`
 
 const DataContainer = styled.div`
     display: flex;
-    height: 70vh;
+    height: 500px;
     flex-direction: column;
     justify-content: center;
 `;
@@ -45,12 +45,32 @@ const DataRow = styled.div`
         opacity: 0.8;
         transition: 1s;
     }
-`
+`;
+
 const DataLink = styled.a`
   color: white;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
+`;
+
+const SubTitleRow = styled.div`
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    color: #06b6ff;
+    width: 17vw;
+    height: 1px;
+    margin-top: 15px;
+`;
+
+const RecentSearchBox = styled.div`
+    display: flex;
+    background: #6886b4;
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
 `;
 
 export { 
@@ -59,5 +79,7 @@ export {
     DataGrid,
     DataTable,
     DataRow,
-    DataLink
+    DataLink,
+    SubTitleRow,
+    RecentSearchBox
 };

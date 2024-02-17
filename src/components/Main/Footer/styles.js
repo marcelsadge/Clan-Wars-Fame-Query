@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const FBox = styled.div`
-  padding: 1px 10px;
-  background: #101221;
-  bottom: 0;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 15vw;
+  width: 84vw;
+  height: 50px;
+  background: #252735;
 `;
    
 const Container = styled.div`

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import CampaignHomePage from './components/Campaigns/CampaignHomePage';
@@ -20,7 +20,8 @@ import MarksOfExcellence from './components/Main/MarksOfExcellence';
 import PageContext from './components/Context/pagecontext';
 import PositionContext from './components/Context/positioncontext';
 
-import "@fontsource/nunito";
+import './index.css';
+import { RecentProvider } from './components/Context/recentcontext'
 
 function Core() {
   const [currContext, setContext] = useState("/");
@@ -29,26 +30,31 @@ function Core() {
   return (
     <PageContext.Provider value={{currContext, setContext}}>
       <PositionContext.Provider value={{currPosition, setPosition}}>
-      <Router>
-          <SideBar />
-          <DataBar />
-          <SearchBar />
-          <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='/marks' element={<MarksOfExcellence />} />
-              <Route path='/stats' element={<Trends />} />
-              <Route path='/clanmap' element={<ClanMap />} />
-              <Route path='/clanmapsearch' element={<ClanMapSearch />} />
-              <Route path='/player/:name' element={<PlayerStatsPage />} />
-              <Route path='/blog' element={<Blog />} />
-              <Route path='/campaignstats' element={<CampaignHomePage />} />
-              <Route path='/Info' element={<Info />} />
-          </Routes>
-          <Footer />
-      </Router>
+        <RecentProvider>
+          <Router>
+              <SideBar />
+              <SearchBar />
+              <Routes>
+                  <Route path='/' element={<HomePage />} />
+                  <Route path='/marks' element={<MarksOfExcellence />} />
+                  <Route path='/stats' element={<Trends />} />
+                  <Route path='/clanmap' element={<ClanMap />} />
+                  <Route path='/clanmapsearch' element={<ClanMapSearch />} />
+                  <Route path='/player/:name' element={<PlayerStatsPage />} />
+                  <Route path='/blog' element={<Blog />} />
+                  <Route path='/campaignstats' element={<CampaignHomePage />} />
+                  <Route path='/Info' element={<Info />} />
+              </Routes>
+              <Footer />
+          </Router>
+        </RecentProvider>
       </PositionContext.Provider>
     </PageContext.Provider>
   );
 }
 
-ReactDOM.render(<Core />, document.getElementById("root"));
+const container = document.getElementById("root");
+
+const root = ReactDOM.createRoot(container);
+
+root.render(<Core />);

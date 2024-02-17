@@ -13,8 +13,22 @@ import {
     NameContainer,
     GeneralContainer,
     NameGroup,
-    HoverContainer
+    HoverContainer,
+    TopGeneralContainer,
+    TopMiddleContainer,
+    EmptyContainer
 } from './styles';
+
+import {
+    HomeRow,
+    HomeColumn,
+    TopBox,
+    MiddleBox,
+    DashboardContainer,
+    SummaryBox,
+    SettingsContainer
+} from './styles';
+import { GoGear } from 'react-icons/go';
 
 function PlayerStatsPage() {
     const [loading, setLoading] = useState(false);
@@ -56,7 +70,7 @@ function PlayerStatsPage() {
     }, []);
 
     return (
-        <div>
+        <EmptyContainer>
             {loading ? 
                 <Loader>
                     <ClipLoader
@@ -67,50 +81,96 @@ function PlayerStatsPage() {
                 </Loader>
                 :
                 <PlayerPage>
-                        <GeneralContainer>
-                            <NameGroup>
-                                <HoverContainer />
-                                <NameContainer>
-                                    {name}
-                                </NameContainer>
-                                <img src={clanEmblem} width={'120px'} height={'110px'} />
-                            </NameGroup>
-                            <RecentStats>
-                                <StatsContainer>
-                                    <TextFont $font={'18px'}>
-                                        Recent WN8: <br />
-                                    </TextFont>
-                                    ---
-                                </StatsContainer>
-                                <StatsContainer>
-                                    <TextFont $font={'18px'}>
-                                        Recent Win Rate: <br />
-                                    </TextFont>
-                                    ---
-                                </StatsContainer>
-                                <StatsContainer>
-                                    <TextFont $font={'18px'}>
-                                        Overall WN8: <br />
-                                    </TextFont>
-                                    <TextFont $font={'16px'}>
-                                        {Math.ceil(wn8)}
-                                    </TextFont>
-                                </StatsContainer>
-                                <StatsContainer>
-                                    <TextFont $font={'18px'}>
-                                        Win Rate: <br />
-                                    </TextFont>
-                                    <TextFont $font={'16px'}>
-                                        {wr}
-                                    </TextFont>
-                                </StatsContainer>
-                            </RecentStats>
-                        </GeneralContainer>
+                    <HomeColumn>
+                        <HomeRow>
+                            <DashboardContainer>
+                                Dashboard
+                            </DashboardContainer>
+                            <SettingsContainer>
+                                <GoGear />
+                                Settings
+                            </SettingsContainer>
+                        </HomeRow>
+                        <HomeRow>
+                            <TopBox>
+
+                            </TopBox>
+                            <TopBox>
+
+                            </TopBox>
+                            <TopBox>
+
+                            </TopBox>
+                            <TopBox>
+                                
+                            </TopBox>
+                        </HomeRow>
+                        <HomeRow>
+                            <MiddleBox>
+
+                            </MiddleBox>
+                            <SummaryBox>
+
+                            </SummaryBox>
+                        </HomeRow>
+                        <HomeRow>
+                            <MiddleBox>
+
+                            </MiddleBox>
+                            <SummaryBox>
+                                
+                            </SummaryBox>
+                        </HomeRow>
+                    </HomeColumn>
                 </PlayerPage>
             }
-        </div>
+        </EmptyContainer>
     );
 
 }
 
 export default PlayerStatsPage;
+
+/*
+<GeneralContainer>
+                        <TopGeneralContainer>
+                            <TopMiddleContainer>
+                                <NameGroup>
+                                    <NameContainer>
+                                        {name}
+                                    </NameContainer>
+                                </NameGroup>
+                                <RecentStats>
+                                    <StatsContainer>
+                                        <TextFont $font={'18px'}>
+                                            Recent WN8: <br />
+                                        </TextFont>
+                                        ---
+                                    </StatsContainer>
+                                    <StatsContainer>
+                                        <TextFont $font={'18px'}>
+                                            Recent Win Rate: <br />
+                                        </TextFont>
+                                        ---
+                                    </StatsContainer>
+                                    <StatsContainer>
+                                        <TextFont $font={'18px'}>
+                                            Overall WN8: <br />
+                                        </TextFont>
+                                        <TextFont $font={'16px'}>
+                                            {Math.ceil(wn8)}
+                                        </TextFont>
+                                    </StatsContainer>
+                                    <StatsContainer>
+                                        <TextFont $font={'18px'}>
+                                            Win Rate: <br />
+                                        </TextFont>
+                                        <TextFont $font={'16px'}>
+                                            {wr}
+                                        </TextFont>
+                                    </StatsContainer>
+                                </RecentStats>
+                            </TopMiddleContainer>
+                        </TopGeneralContainer>
+                    </GeneralContainer>
+                    */
