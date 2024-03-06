@@ -8,8 +8,8 @@ require('dotenv').config();
 const fameCutoffRoute = require('./routes/cutoff.routes');
 const moeRoute = require('./routes/moe.routes');
 
-const port = process.env.PORT || 5000;
-const uri = process.env.ATLAS_URI;
+const port = process.env.PORT || 3000;
+const uri = process.env.ATLAS_URI || 'mongodb://127.0.0.1:27017/WotCluster';
 
 const app = express();
 app.use(express.json());

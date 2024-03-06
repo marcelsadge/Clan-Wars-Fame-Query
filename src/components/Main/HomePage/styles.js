@@ -28,7 +28,7 @@ const HomeColumn = styled.div`
 
 const DashboardContainer = styled.div`
     margin-top: 100px;
-    margin-left: 40px;
+    margin-left: 30px;
     border-radius: 25px;
     height: 50px;
     color: #fff;
@@ -61,7 +61,7 @@ const SettingsContainer = styled.div`
 
 const TopBox = styled.div`
     background-color: #626ed4;
-    margin-left: 1.5vw;
+    margin-left: 1.4vw;
     border-radius: 15px;
     width: 370px;
     height: 150px;
@@ -72,7 +72,7 @@ const TopBox = styled.div`
 
 const MiddleBox = styled.div`
     background-color: #2a3142;
-    margin-left: 1.5vw;
+    margin-left: 1.4vw;
     border-radius: 15px;
     width: 1165px;
     height: 450px;

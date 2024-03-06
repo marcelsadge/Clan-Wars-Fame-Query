@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoGear } from "react-icons/go";
 
 import {
@@ -13,6 +13,7 @@ import {
 } from './styles';
 
 function HomePage() {
+    const [marks, setMarks] = useState([]);
 
     const handleSettingsPopup = () => {
         
@@ -20,6 +21,20 @@ function HomePage() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        async function getMarks() {
+            await fetch(`https:/localhost:3000/get/moe`, {
+                method: 'POST'
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                return result.data;
+            });
+        }
+
+        getMarks();
     }, []);
 
     return( 

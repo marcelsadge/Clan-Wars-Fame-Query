@@ -13,7 +13,6 @@ router.post('/moe', async (req, res) => {
     });
     try {
         const newMoe = new MOE({
-            id: 1,
             data: getMoe,
         });
         const saveMoe = await newMoe.save();
