@@ -9,7 +9,7 @@ const fameCutoffRoute = require('./routes/cutoff.routes');
 const moeRoute = require('./routes/moe.routes');
 
 const port = process.env.PORT || 3000;
-const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/WotCluster';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/WotCluster';
 
 const app = express();
 app.use(express.json());
