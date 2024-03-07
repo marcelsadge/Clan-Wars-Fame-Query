@@ -22,18 +22,6 @@ const server = http.createServer(app);
 
 mongoose.connect(uri, {});
 
-app.get('/', (req, res, next) => {
-
-  res.status(200).json({
-      status: 'success',
-      data: {
-          name: 'Tank.lol',
-          version: '0.1.0'
-      }
-  });
-
-});
-
 app.listen(process.env.PORT, () =>
   console.log(`MongoDB listening at port: ${port}`)
 );
