@@ -25,7 +25,7 @@ function HomePage() {
 
     useEffect(() => {
         async function getMarks() {
-            await fetch(`https:/localhost:3000/get/moe`, {
+            await fetch(`http://tank.lol/get/moe`, {
                 method: 'POST'
             })
             .then((response) => response.json())
