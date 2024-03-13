@@ -34,7 +34,7 @@ function HomePage() {
             });
         }
 
-        getMarks();
+        //getMarks();
     }, []);
 
     return( 

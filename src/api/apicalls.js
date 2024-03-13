@@ -193,7 +193,7 @@ export async function getPlayersFamePoints(cutoff) {
     const result = arrayOfPlayers.flat(1);
     for (const elem in result) {
         if (result[elem]) {
-            if (result[elem]["award_level"] == cutoff) {
+            if (result[elem]["award_level"] === cutoff) {
                 return result[elem]["fame_points"];
             }
         }
@@ -370,7 +370,7 @@ export async function getAvailableClans(clan_ids) {
         .then((result) => {
             return result.data;
         });
-        if (clanDetails[clan_ids[id]]["events"]["we_2023"][0]["battles"] != 0) {
+        if (clanDetails[clan_ids[id]]["events"]["we_2023"][0]["battles"] !== 0) {
             console.log(clanDetails);
             count++;
             console.log(count);

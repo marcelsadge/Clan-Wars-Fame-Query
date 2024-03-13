@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import { ClipLoader } from 'react-spinners';
 import { 
     Table, 
-    TableBody, 
-    TableCell, 
-    TableContainer, 
+    TableBody,
     TableHead, 
     TableRow, 
     Paper, 
@@ -16,10 +15,10 @@ import {
     MarksContainer, 
     MarksGroup, 
     MarksTitle,
-    CustomMarksCell
+    CustomMarksCell,
+    Loader
 } from './styles';
 
-import marks from '../../../marks.json';
 import { makeStyles } from '@material-ui/core';
 import { exportTankData } from '../../../api/apicalls';
 
@@ -42,25 +41,13 @@ const MarksCellStyle = {
 };
 
 function MarksOfExcellence() {
-    const classes = useStyles();
-
-    const cleanMarks = async () => {
-        for (const val in marks['data']) {
-            const tankJson = await exportTankData(marks['data'][val]['id']);
-            console.log(marks['data'][val]['tank']);
-            marks['data'][val]['tank'] = tankJson['name'];
-        }
-    };
-
-    const defaultSort = marks['data'].sort((a, b) => {
-        return(
-            a['marks']['95'] > b['marks']['95'] ? 1 : 0
-    )});
-
-    const [rowData, setRowData] = useState(defaultSort);
+    const [loading, setLoading] = useState(false);
+    const [rowData, setRowData] = useState([]);
     const [order, setOrder] = useState('desc');
     const [page, setPage] = useState(0);
     const [tanksPerPage, setTanksPerPage] = useState(10);
+
+    const classes = useStyles();
 
     const handlePageChange = (event, newPage) => {
         setPage(newPage);
@@ -74,35 +61,76 @@ function MarksOfExcellence() {
         switch(orderBy) {
             case "desc":
                 return arr.sort((a, b) =>
-                        a['marks'][value] > b['marks'][value] ? 1 : a['marks'][value] < b['marks'][value] ? -1 : 0
+                        a[value] > b[value] ? 1 : a[value] < b[value] ? -1 : 0
                     );
             case "asc":
                 default:
                     return arr.sort((a, b) =>
-                        a['marks'][value] < b['marks'][value] ? 1 : a['marks'][value] > b['marks'][value] ? -1 : 0
+                        a[value] < b[value] ? 1 : a[value] > b[value] ? -1 : 0
                     );
         }
     };
 
     const handleSortTable = (value) => {
-        setRowData(sortMarks(defaultSort, order, value.toString()));
+        setRowData(sortMarks(rowData, order, value.toString()));
         setOrder(order === "asc" ? "desc" : "asc");
     };
         
     useEffect(() => {
+        async function retreiveMarks() {
+            setLoading(true);
+
+            const date = new Date();
+
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            
+            try {
+                await fetch(`https://project-fame-backend.onrender.com/get/moe?date=${day + "/" + month + "/" + year}`, {
+                method: 'GET'})
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log(result[0].data);
+                    setRowData(result[0].data.sort((a, b) => {
+                        return(
+                            a['95'] > b['95'] ? 1 : 0
+                    )}));
+                });
+
+            } catch (e) {
+
+            } finally {
+                setLoading(false);
+            }
+        }
+
         window.scrollTo(0, 0);
         //cleanMarks();
+        retreiveMarks();
     }, []);
 
+    //onClick={() => handleSortTable(100)}
+
     return( 
+        <>
+        {loading ? 
+            <Loader>
+                <ClipLoader
+                    size={150}
+                    color={'white'}
+                    loading={loading}
+                />
+            </Loader>
+        :
         <MarksContainer>
             <MarksGroup>
-            <Paper style={{padding: '20px', background: '#626ed4' }}>
+            <Paper style={{padding: '20px', background: '#2a3142' }}>
                 <MarksTitle>
                     Marks of Excellence
                 </MarksTitle>
                 <Table className={classes.table} aria-label="simple table">
-                    <TableHead style={{ background: '#626ed4' }}>
+                    <TableHead style={{ background: '#2a3142' }}>
                         <TableRow>
                             <CustomMarksCell sx={MarksHeaderCellStyle}>
                                 Tank
@@ -117,28 +145,29 @@ function MarksOfExcellence() {
                                 95
                                 <TableSortLabel style={{ backgroundColor: 'white'}} active={true} direction={order} />
                             </CustomMarksCell>
-                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(100)}>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(65)}>
                                 100
                             </CustomMarksCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody style={{background: '#626ed4'}}>
+                    <TableBody style={{background: '#2a3142'}}>
                         {rowData.slice(page * tanksPerPage, page * tanksPerPage + tanksPerPage).map((row) => (
                             <TableRow key={row['id']}>
                                 <CustomMarksCell sx={MarksCellStyle}>
-                                    {row['tank']}
+                                    <img src={row['icon']} />
+                                    {row['name']}
                                 </CustomMarksCell>
                                 <CustomMarksCell sx={MarksCellStyle}>
-                                    {row['marks']['65']}
+                                    {row['65']}
                                 </CustomMarksCell>
                                 <CustomMarksCell sx={MarksCellStyle}>
-                                    {row['marks']['85']}
+                                    {row['85']}
                                 </CustomMarksCell>
                                 <CustomMarksCell sx={MarksCellStyle}>
-                                    {row['marks']['95']}
+                                    {row['95']}
                                 </CustomMarksCell>
                                 <CustomMarksCell sx={MarksCellStyle}>
-                                    {row['marks']['100']}
+                                    {row['100']}
                                 </CustomMarksCell>
                             </TableRow>
                         ))}
@@ -152,11 +181,13 @@ function MarksOfExcellence() {
                 page={page}
                 onPageChange={handlePageChange}
                 onRowsPerPageChange={handleTanksPerPage}
-                style={{ background: "#626ed4", width: '50vw', color: 'white', fontFamily: 'Rubik, sans-serif' }}
+                style={{ background: "#2a3142", width: '50vw', color: 'white', fontFamily: 'Rubik, sans-serif' }}
             />
             </Paper>
             </MarksGroup>
         </MarksContainer>
+                        }
+        </>
     );
 }
 

@@ -6,12 +6,12 @@ const FameHomePage = styled.div`
     display: flex;
     font-family: 'Rubik', sans-serif;
     background: #252735;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     margin-left: 15vw;
     width: 84vw;
     height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 `;
 
 const HomeRow = styled.div`

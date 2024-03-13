@@ -131,12 +131,6 @@ function SideBar() {
                                         Stats
                                     </SideLink>) : (<div></div>)}
                                 </SideRow>
-                                <SideRow onClick={() => handleOnClick('/campaignstats')}>
-                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
-                                    {isDesktop ? (<SideLink>
-                                        Coming Soon...
-                                    </SideLink>) : (<div></div>)}
-                                </SideRow>
                             </SideTable>
                             </>
                         ) : (
@@ -184,12 +178,6 @@ function SideBar() {
                                     <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
                                     {isDesktop ? (<SideLink>
                                         Stats
-                                    </SideLink>) : (<div></div>)}
-                                </SideRow>
-                                <SideRow onClick={() => handleOnClick('/campaignstats')}>
-                                    <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
-                                    {isDesktop ? (<SideLink>
-                                        Coming Soon...
                                     </SideLink>) : (<div></div>)}
                                 </SideRow>
                         </SideTableMini>
