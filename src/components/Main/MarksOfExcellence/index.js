@@ -145,7 +145,7 @@ function MarksOfExcellence() {
                                 95
                                 <TableSortLabel style={{ backgroundColor: 'white'}} active={true} direction={order} />
                             </CustomMarksCell>
-                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(65)}>
+                            <CustomMarksCell sx={MarksHeaderCellStyle} onClick={() => handleSortTable(100)}>
                                 100
                             </CustomMarksCell>
                         </TableRow>

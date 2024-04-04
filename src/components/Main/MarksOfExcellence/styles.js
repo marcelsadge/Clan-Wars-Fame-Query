@@ -21,21 +21,28 @@ const MarksGroup = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
     z-index: 96;
 `;
 
 const MarksTitle = styled.div`
     color: white;
+    font-family: 'Nunito' !important;
     background: #2a3142;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     padding: 21px;
     text-align: center;
 `;
 
 const CustomMarksCell = styled(TableCell)`
-
+    display: flex-end;
+    width: 300px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const Loader = styled.div`

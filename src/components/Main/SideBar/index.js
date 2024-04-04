@@ -128,7 +128,7 @@ function SideBar() {
                                 <SideRow onClick={() => handleOnClick('/campaignstats')} style={{"marginTop" : "30px"}}>
                                     <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
                                     {isDesktop ? (<SideLink>
-                                        Stats
+                                        Maneuvers Winter 2024
                                     </SideLink>) : (<div></div>)}
                                 </SideRow>
                             </SideTable>
@@ -177,7 +177,7 @@ function SideBar() {
                                 <SideRow onClick={() => handleOnClick('/campaignstats')} style={{"marginTop" : "30px"}}>
                                     <GiTank size={'23px'} color={'white'} opacity={'0.9'}/>
                                     {isDesktop ? (<SideLink>
-                                        Stats
+                                        Maneuvers Winter 2024
                                     </SideLink>) : (<div></div>)}
                                 </SideRow>
                         </SideTableMini>
